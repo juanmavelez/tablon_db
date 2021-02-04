@@ -1,5 +1,11 @@
 const express = require('express');
 const app = express();
-const { config } = requir('./config/index.js');
 
-app.get('/', function (req, res) {});
+const { config } = require('./config');
+const userApi = require('./routes/users.js');
+
+userApi(app);
+
+app.listen(config.port, function () {
+  console.log(`Listening http://localhost:${config.port}`);
+});
