@@ -1,5 +1,6 @@
 const express = require('express');
-const UserService = require('../services/users.services');
+const usersMock = require('../utils/mocks/users.mock');
+const UserService = require('../services/users.service');
 
 function userApi(app) {
   const router = express.Router();
@@ -35,7 +36,7 @@ function userApi(app) {
   router.post('/', async function (req, res, next) {
     try {
       const { body: user } = req;
-      const createdUser = await userService.createdUser({ user });
+      const createdUser = await userService.createUser({ user });
       res.status(200).json({
         data: createdUser,
         message: 'users were created',
