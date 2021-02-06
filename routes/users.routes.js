@@ -1,6 +1,7 @@
 const express = require('express');
-const usersMock = require('../utils/mocks/users.mock');
 const UserService = require('../services/user.service');
+const validationHandler = require('../utils/middleware/validationHandler');
+const { userIdSchema, createUserSchema, updateUserSchema } = require('../utils/schemas/user.schema');
 
 function userApi(app) {
   const router = express.Router();
@@ -20,7 +21,7 @@ function userApi(app) {
     }
   });
 
-  router.get('/:userId', async function (req, res, next) {
+  router.get('/:userId', validationHandler({ userId: userIdSchema }, 'params'), async function (req, res, next) {
     try {
       const { userId } = req.params;
       const user = await userService.getUser({ userId });
@@ -33,7 +34,7 @@ function userApi(app) {
     }
   });
 
-  router.post('/', async function (req, res, next) {
+  router.post('/', validationHandler(createUserSchema), async function (req, res, next) {
     try {
       const { body: user } = req;
       const createdUser = await userService.createUser({ user });
@@ -46,11 +47,11 @@ function userApi(app) {
     }
   });
 
-  router.put('/:userId', async function (req, res, next) {
+  router.put('/:userId', validationHandler(updateUserSchema), async function (req, res, next) {
     try {
       const { body: user } = req;
       const { userId } = req.params;
-      const updatedUserId = await userService.updatedUserId({ userId, user });
+      const updatedUserId = await userService.updateUser({ userId, user });
       res.status(200).json({
         data: updatedUserId,
         message: 'user was updated',
@@ -60,13 +61,13 @@ function userApi(app) {
     }
   });
 
-  router.delete('/:userId', async function (req, res, next) {
+  router.delete('/:userId', validationHandler({ userId: userIdSchema }, 'params'), async function (req, res, next) {
     try {
       const { userId } = req.params;
-      const deletedUser = await userService.delete({ userId });
+      const deletedUser = await userService.deleteUser({ userId });
       res.status(200).json({
         data: deletedUser,
-        message: 'users were listed',
+        message: 'user were deleted succesfully',
       });
     } catch (err) {
       next(err);

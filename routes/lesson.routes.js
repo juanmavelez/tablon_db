@@ -1,5 +1,7 @@
 const express = require('express');
 const LessonService = require('../services/lesson.service');
+const validationHandler = require('../utils/middleware/validationHandler');
+const { lessonIdSchema, createLessonSchema, updateLessonSchema } = require('../utils/schemas/lesson.schema');
 
 function lessonApi(app) {
   const router = express.Router();
@@ -19,7 +21,7 @@ function lessonApi(app) {
     }
   });
 
-  router.get('/:lessonId', async function (req, res, next) {
+  router.get('/:lessonId', validationHandler({ lessonId: lessonIdSchema }, 'params'), async function (req, res, next) {
     try {
       const { lessonId } = req.params;
       const lesson = await lessonService.getLesson({ lessonId });
@@ -32,7 +34,7 @@ function lessonApi(app) {
     }
   });
 
-  router.post('/', async function (req, res, next) {
+  router.post('/', validationHandler(createLessonSchema), async function (req, res, next) {
     try {
       const { body: lesson } = req;
       const createdLesson = await lessonService.createLesson({ lesson });
@@ -45,32 +47,41 @@ function lessonApi(app) {
     }
   });
 
-  router.put('/:lessonId', async function (req, res, next) {
-    try {
-      const { body: lesson } = req;
-      const { lessonId } = req.params;
-      const updatedLessonId = await lessonService.updatedLessonId({ lessonId, lesson });
-      res.status(200).json({
-        data: updatedLessonId,
-        message: 'lesson was updated',
-      });
-    } catch (err) {
-      next(err);
+  router.put(
+    '/:lessonId',
+    validationHandler({ lessonId: lessonIdSchema }, 'params'),
+    validationHandler(updateLessonSchema),
+    async function (req, res, next) {
+      try {
+        const { body: lesson } = req;
+        const { lessonId } = req.params;
+        const updatedLessonId = await lessonService.updateLesson({ lessonId, lesson });
+        res.status(200).json({
+          data: updatedLessonId,
+          message: 'lesson was updated',
+        });
+      } catch (err) {
+        next(err);
+      }
     }
-  });
+  );
 
-  router.delete('/:lessonsId', async function (req, res, next) {
-    try {
-      const { lessonsId } = req.params;
-      const deletedlessons = await lessonService.delete({ lessonsId });
-      res.status(200).json({
-        data: deletedlessons,
-        message: 'lessonss were listed',
-      });
-    } catch (err) {
-      next(err);
+  router.delete(
+    '/:lessonId',
+    validationHandler({ lessonId: lessonIdSchema }, 'params'),
+    async function (req, res, next) {
+      try {
+        const { lessonId } = req.params;
+        const deletedlessons = await lessonService.deleteLesson({ lessonId });
+        res.status(200).json({
+          data: deletedlessons,
+          message: 'lesson was deleted succesfully',
+        });
+      } catch (err) {
+        next(err);
+      }
     }
-  });
+  );
 }
 
 module.exports = lessonApi;

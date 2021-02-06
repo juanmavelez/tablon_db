@@ -1,6 +1,8 @@
 const express = require('express');
 const coursesMock = require('../utils/mocks/courses.mock');
 const CourseService = require('../services/course.service');
+const validationHandler = require('../utils/middleware/validationHandler');
+const { courseIdSchema, createCourseSchema, updateCourseSchema } = require('../utils/schemas/course.schema');
 
 function courseApi(app) {
   const router = express.Router();
@@ -20,7 +22,7 @@ function courseApi(app) {
     }
   });
 
-  router.get('/:courseId', async function (req, res, next) {
+  router.get('/:courseId', validationHandler({ courseId: courseIdSchema }, 'params'), async function (req, res, next) {
     try {
       const { courseId } = req.params;
       const course = await courseService.getCourse({ courseId });
@@ -33,7 +35,7 @@ function courseApi(app) {
     }
   });
 
-  router.post('/', async function (req, res, next) {
+  router.post('/', validationHandler(createCourseSchema), async function (req, res, next) {
     try {
       const { body: course } = req;
       const createdCourse = await courseService.createCourse({ course });
@@ -46,32 +48,41 @@ function courseApi(app) {
     }
   });
 
-  router.put('/:courseId', async function (req, res, next) {
-    try {
-      const { body: course } = req;
-      const { courseId } = req.params;
-      const updatedCourseId = await courseService.updatedCourseId({ courseId, course });
-      res.status(200).json({
-        data: updatedCourseId,
-        message: 'course was updated',
-      });
-    } catch (err) {
-      next(err);
+  router.put(
+    '/:courseId',
+    validationHandler({ courseId: courseIdSchema }, 'params'),
+    validationHandler(updateCourseSchema),
+    async function (req, res, next) {
+      try {
+        const { body: course } = req;
+        const { courseId } = req.params;
+        const updatedCourseId = await courseService.updateCourse({ courseId, course });
+        res.status(200).json({
+          data: updatedCourseId,
+          message: 'course was updated',
+        });
+      } catch (err) {
+        next(err);
+      }
     }
-  });
+  );
 
-  router.delete('/:courseId', async function (req, res, next) {
-    try {
-      const { courseId } = req.params;
-      const deletedCourse = await courseService.delete({ courseId });
-      res.status(200).json({
-        data: deletedCourse,
-        message: 'courses were listed',
-      });
-    } catch (err) {
-      next(err);
+  router.delete(
+    '/:courseId',
+    validationHandler({ courseId: courseIdSchema }, 'params'),
+    async function (req, res, next) {
+      try {
+        const { courseId } = req.params;
+        const deletedCourse = await courseService.deleteCourse({ courseId });
+        res.status(200).json({
+          data: deletedCourse,
+          message: 'course was deleted succesfully',
+        });
+      } catch (err) {
+        next(err);
+      }
     }
-  });
+  );
 }
 
 module.exports = courseApi;
