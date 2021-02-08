@@ -26,7 +26,7 @@ function lessonApi(app) {
       const { lessonId } = req.params;
       const lesson = await lessonService.getLesson({ lessonId });
       res.status(200).json({
-        data: lessons,
+        data: lesson,
         message: 'lesson was listed',
       });
     } catch (err) {
@@ -38,7 +38,7 @@ function lessonApi(app) {
     try {
       const { body: lesson } = req;
       const createdLesson = await lessonService.createLesson({ lesson });
-      res.status(200).json({
+      res.status(201).json({
         data: createdLesson,
         message: 'lesson was created',
       });

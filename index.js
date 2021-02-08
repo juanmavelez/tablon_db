@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const { config } = require('./config');
 
-const userApi = require('./routes/users.routes');
+const userApi = require('./routes/user.routes');
 const courseApi = require('./routes/course.routes');
 const lessonApi = require('./routes/lesson.routes');
 

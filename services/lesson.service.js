@@ -3,7 +3,7 @@ const MongoLib = require('../lib/mongo');
 
 class lessonService {
   constructor() {
-    this.collection = 'lesson';
+    this.collection = 'lessons';
     this.mongoDB = new MongoLib();
   }
 
@@ -13,7 +13,7 @@ class lessonService {
     return users || [];
   }
 
-  async getlesson({ lessonId }) {
+  async getLesson({ lessonId }) {
     const lesson = await this.mongoDB.get(this.collection, lessonId);
     return lesson || {};
   }

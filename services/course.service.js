@@ -3,7 +3,7 @@ const MongoLib = require('../lib/mongo');
 
 class CourseService {
   constructor() {
-    this.collection = 'course';
+    this.collection = 'courses';
     this.mongoDB = new MongoLib();
   }
 

@@ -1,6 +1,6 @@
 const Joi = require('Joi');
 
-const userIdSchema = Joi.string().regex(/^[0-9a-fA-F]{24}$/);
+const userIdSchema = Joi.string().max(24);
 const userUsernameSchema = Joi.string().max(80);
 const userEmailSchema = Joi.string().email();
 const userInterestSchema = Joi.array().items(Joi.number());

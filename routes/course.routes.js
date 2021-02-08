@@ -1,5 +1,4 @@
 const express = require('express');
-const coursesMock = require('../utils/mocks/courses.mock');
 const CourseService = require('../services/course.service');
 const validationHandler = require('../utils/middleware/validationHandler');
 const { courseIdSchema, createCourseSchema, updateCourseSchema } = require('../utils/schemas/course.schema');
@@ -39,7 +38,7 @@ function courseApi(app) {
     try {
       const { body: course } = req;
       const createdCourse = await courseService.createCourse({ course });
-      res.status(200).json({
+      res.status(201).json({
         data: createdCourse,
         message: 'course was created',
       });

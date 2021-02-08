@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const lessonIdSchema = Joi.string().regex(/^[0-9a-fA-F]{24}$/);
+const lessonIdSchema = Joi.string().max(24);
 const lessonNameSchema = Joi.string().min(3);
 const lessonCourseSchema = Joi.number();
 const lessonDescriptionSchema = Joi.string();
