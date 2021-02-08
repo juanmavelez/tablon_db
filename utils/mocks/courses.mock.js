@@ -1,928 +1,1067 @@
 const coursesMock = [
   {
     id: 1,
-    name: 'Amandla! A Revolution in Four Part Harmony',
-    teacher: 6,
-    classes: [3],
-    tags: [1, 5, 5, 7, 4, 10, 5, 5],
-    students: [8, 17, 19, 48, 46, 28, 46, 44, 23],
-    description: 'sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet',
+    name: 'Tsonga',
+    teacher: 33,
+    lessons: [
+      {
+        name: 'Hotel Hell Vacation',
+        description: 'condimentum id luctus nec molestie sed justo pellentesque viverra pede ac',
+      },
+      {
+        name: 'The Package',
+        description: 'sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus',
+      },
+      {
+        name: 'Confessions of a Dangerous Mind',
+        description:
+          'vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra',
+      },
+      {
+        name: 'Harvard Man',
+        description:
+          'convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet',
+      },
+      { name: 'Dacii', description: 'consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel' },
+    ],
+    tags: ['phasellus', 'suspendisse', 'justo', 'vestibulum', 'praesent', 'vestibulum', 'lacus', 'maecenas'],
   },
   {
     id: 2,
-    name: 'Slow Burn',
-    teacher: 13,
-    classes: [6, 8, 9, 2, 2, 7, 6, 4, 3, 2, 7, 8, 8, 8, 5, 9, 2, 7, 10],
-    tags: [8],
-    students: [50, 50, 26, 7, 21, 45, 42, 1, 8],
-    description:
-      'nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros',
+    name: 'Spanish',
+    teacher: 36,
+    lessons: [
+      {
+        name: 'Touch of Spice, A (Politiki kouzina)',
+        description: 'urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras',
+      },
+      {
+        name: 'Strange Voyage',
+        description:
+          'orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin',
+      },
+      {
+        name: 'Lovers and Lollipops',
+        description:
+          'ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac',
+      },
+      {
+        name: "Agatha Christie's 'Ten Little Indians' (Ten Little Indians) (And Then There Were None)",
+        description:
+          'erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit',
+      },
+    ],
+    tags: ['integer', 'eget', 'metus', 'eros', 'ligula', 'morbi', 'ipsum'],
   },
   {
     id: 3,
-    name: 'Mother of Mine (Äideistä parhain)',
-    teacher: 6,
-    classes: [10, 4, 4, 4, 6, 7, 6, 5, 2, 8, 4, 3, 2, 9, 6],
-    tags: [1, 5],
-    students: [27, 4, 31, 37, 31, 18, 4, 48, 35, 10, 20, 21, 32, 38, 38, 18, 6, 24, 28],
-    description:
-      'proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh',
+    name: 'New Zealand Sign Language',
+    teacher: 19,
+    lessons: [
+      {
+        name: 'Children of Noisy Village, The (a.k.a Children of Bullerby Village, The) (Alla vi barn i Bullerbyn)',
+        description:
+          'eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer',
+      },
+      {
+        name: 'Peace, Propaganda & the Promised Land',
+        description:
+          'vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis',
+      },
+      {
+        name: "Une étudiante d'aujourd'hui",
+        description: 'pede malesuada in imperdiet et commodo vulputate justo in blandit',
+      },
+      {
+        name: 'Charade',
+        description: 'eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis',
+      },
+    ],
+    tags: ['rutrum', 'diam', 'bibendum', 'convallis', 'nullam', 'aliquam', 'phasellus'],
   },
   {
     id: 4,
-    name: "Monkey's Teeth (Dents du singe, Les)",
-    teacher: 33,
-    classes: [5, 2, 4, 10, 8, 9, 3],
-    tags: [1, 1],
-    students: [25, 7, 17, 35, 26, 10],
-    description: 'maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis',
+    name: 'Finnish',
+    teacher: 23,
+    lessons: [
+      {
+        name: 'Toxic Avenger Part III: The Last Temptation of Toxie, The',
+        description:
+          'morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo',
+      },
+    ],
+    tags: ['sapien', 'gravida', 'cubilia', 'mauris', 'aenean', 'tellus', 'commodo', 'nisl', 'congue', 'aliquam'],
   },
   {
     id: 5,
-    name: 'Phenomena (a.k.a. Creepers)',
-    teacher: 33,
-    classes: [7, 9],
-    tags: [4, 6, 3, 5, 2, 2],
-    students: [23, 35, 39, 13, 25, 14, 19, 15, 18, 36, 20, 39, 10, 28, 5, 3, 17, 42, 6, 47],
-    description: 'porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus',
+    name: 'Hiri Motu',
+    teacher: 32,
+    lessons: [
+      {
+        name: 'Cinematographer Style',
+        description: 'enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum',
+      },
+      {
+        name: 'Lost Youth',
+        description: 'aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non',
+      },
+      {
+        name: 'Jungle Creature: Hugo, The (Jungledyret) (Go Hugo Go)',
+        description:
+          'congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque',
+      },
+      { name: 'Shadowzone', description: 'donec odio justo sollicitudin ut suscipit a feugiat et eros' },
+    ],
+    tags: ['luctus', 'sit', 'lacinia'],
   },
   {
     id: 6,
-    name: 'K-20: The Fiend with Twenty Faces',
-    teacher: 19,
-    classes: [10, 10, 4, 1, 8, 1, 4, 8, 8, 1, 9, 6, 6, 9, 7, 10, 3],
-    tags: [6, 6, 7, 5, 8, 8],
-    students: [35, 40, 14, 14, 37, 42, 39, 41, 17, 45],
-    description: 'dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus',
+    name: 'Kannada',
+    teacher: 23,
+    lessons: [
+      {
+        name: 'Wanted',
+        description:
+          'metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet',
+      },
+    ],
+    tags: ['sem', 'in', 'integer', 'pede', 'dictumst', 'dictumst', 'vivamus', 'massa', 'amet', 'congue'],
   },
   {
     id: 7,
-    name: 'Emperor',
-    teacher: 29,
-    classes: [4, 3, 8, 7, 4, 6, 3, 10, 8, 4, 7, 6, 4, 4, 7, 3, 9, 1],
-    tags: [9, 4, 5, 10, 8, 9, 1, 7, 3, 6],
-    students: [47, 2, 2, 27, 22, 9, 37, 28],
-    description: 'erat id mauris vulputate elementum nullam varius nulla facilisi cras non',
+    name: 'Kazakh',
+    teacher: 22,
+    lessons: [
+      {
+        name: 'Terra (a.k.a. Battle for Terra)',
+        description:
+          'sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel',
+      },
+    ],
+    tags: ['sociis', 'ipsum', 'lobortis'],
   },
   {
     id: 8,
-    name: 'Peanut Butter Solution, The',
-    teacher: 48,
-    classes: [8, 8],
-    tags: [3],
-    students: [30, 17, 34, 46, 5, 48, 17],
-    description:
-      'rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis',
+    name: 'New Zealand Sign Language',
+    teacher: 20,
+    lessons: [
+      { name: 'Nativity!', description: 'bibendum morbi non quam nec dui luctus rutrum nulla tellus in' },
+      {
+        name: 'Into the West',
+        description:
+          'lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce',
+      },
+      {
+        name: 'Hedwig and the Angry Inch',
+        description: 'placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque',
+      },
+      {
+        name: 'Bone Collector, The',
+        description:
+          'enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum',
+      },
+      {
+        name: 'Death Defying Acts',
+        description: 'nibh in lectus pellentesque at nulla suspendisse potenti cras in purus',
+      },
+    ],
+    tags: ['nisl', 'elit', 'donec', 'id', 'integer', 'eleifend', 'nulla', 'odio', 'porttitor'],
   },
   {
     id: 9,
-    name: 'Not Fade Away',
-    teacher: 12,
-    classes: [3, 7, 7, 8, 10, 1, 10, 10, 9, 9],
-    tags: [6, 7, 10, 8, 6, 6, 7, 8, 2, 2],
-    students: [42, 13, 33, 24, 39, 45, 6, 25, 50, 11, 45, 17, 46, 17, 46, 3, 35],
-    description: 'nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla',
+    name: 'Croatian',
+    teacher: 26,
+    lessons: [
+      {
+        name: 'Shadow of Angels (Schatten der Engel)',
+        description:
+          'lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed',
+      },
+      {
+        name: 'Female Convict Scorpion: Jailhouse 41 (Joshuu sasori: Dai-41 zakkyo-bô)',
+        description: 'volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus',
+      },
+      { name: 'Reef, The', description: 'massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi' },
+      {
+        name: 'Condemned, The',
+        description: 'ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget',
+      },
+    ],
+    tags: ['faucibus', 'nulla', 'duis', 'faucibus', 'sapien', 'velit'],
   },
   {
     id: 10,
-    name: 'Hyenas (Hyènes)',
-    teacher: 41,
-    classes: [1, 9, 1, 6, 7],
-    tags: [3, 4, 7, 1, 10, 7, 10, 7, 9, 6],
-    students: [17, 24, 20, 25, 22, 32, 50, 40, 18],
-    description:
-      'est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices',
+    name: 'Norwegian',
+    teacher: 1,
+    lessons: [
+      {
+        name: 'Het Vonnis',
+        description:
+          'imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium',
+      },
+      { name: "Slugger's Wife, The", description: 'integer non velit donec diam neque vestibulum eget vulputate ut' },
+      {
+        name: 'I aionia epistrofi tou Antoni Paraskeva',
+        description:
+          'rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id',
+      },
+      {
+        name: 'Eat Drink Man Woman (Yin shi nan nu)',
+        description:
+          'erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt',
+      },
+      {
+        name: 'Express, The',
+        description:
+          'orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin',
+      },
+    ],
+    tags: ['ac', 'non', 'neque'],
   },
   {
     id: 11,
-    name: 'Mimino',
-    teacher: 6,
-    classes: [7, 7, 8, 9, 8, 5, 8, 2, 5, 9, 10, 1, 4, 8],
-    tags: [9, 10, 1, 8, 5],
-    students: [42],
-    description: 'eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper',
+    name: 'Kurdish',
+    teacher: 18,
+    lessons: [
+      {
+        name: 'La Belle équipe',
+        description: 'felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat',
+      },
+      {
+        name: 'Complicit',
+        description: 'eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui',
+      },
+    ],
+    tags: ['lacinia', 'in'],
   },
   {
     id: 12,
-    name: 'Looking for Comedy in the Muslim World',
-    teacher: 18,
-    classes: [1, 7, 9, 5, 6, 2, 10, 7, 4, 3, 3],
-    tags: [1, 6],
-    students: [46, 24, 31, 25],
-    description:
-      'parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor',
+    name: 'Tajik',
+    teacher: 44,
+    lessons: [
+      { name: 'Gambit', description: 'eget tempus vel pede morbi porttitor lorem id ligula suspendisse' },
+      {
+        name: 'American Heart',
+        description:
+          'auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede',
+      },
+      { name: 'Patty Hearst', description: 'congue risus semper porta volutpat quam pede lobortis ligula sit' },
+      { name: 'SSSSSSS', description: 'convallis eget eleifend luctus ultricies eu nibh quisque id justo' },
+    ],
+    tags: ['iaculis'],
   },
   {
     id: 13,
-    name: 'Erin Brockovich',
-    teacher: 36,
-    classes: [8, 3, 10, 6, 1, 8, 6, 2, 3, 7, 10, 7],
-    tags: [3, 1, 6, 3, 1, 6, 7],
-    students: [10, 42, 17, 20, 50, 4, 45, 50, 18, 47, 42],
-    description:
-      'montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus',
+    name: 'Greek',
+    teacher: 35,
+    lessons: [
+      {
+        name: 'Short Eyes',
+        description:
+          'non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non',
+      },
+    ],
+    tags: ['neque', 'sodales', 'ac', 'dolor', 'donec', 'in', 'nulla', 'amet', 'convallis'],
   },
   {
     id: 14,
-    name: 'Bent',
-    teacher: 23,
-    classes: [6, 4, 3, 1, 2],
-    tags: [3, 9, 5, 3],
-    students: [39, 34, 4, 21, 48, 45, 27, 45, 46, 29],
-    description:
-      'luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a',
+    name: 'Nepali',
+    teacher: 30,
+    lessons: [
+      {
+        name: 'Kid Millions',
+        description: 'lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec',
+      },
+      {
+        name: "White Men Can't Jump",
+        description: 'a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor',
+      },
+      {
+        name: 'Drogówka',
+        description: 'egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero',
+      },
+      {
+        name: 'Incredible Melting Man, The',
+        description: 'sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam',
+      },
+      {
+        name: "What's the Matter with Helen?",
+        description: 'ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum',
+      },
+    ],
+    tags: ['neque'],
   },
   {
     id: 15,
-    name: 'May',
-    teacher: 29,
-    classes: [10, 8, 8, 10, 2, 10, 6, 4, 10, 8, 3, 4, 2, 2, 2, 8, 9, 7, 6],
-    tags: [8, 5, 9, 4, 5, 4, 7, 3, 8],
-    students: [47, 15, 18, 32, 37, 34, 1, 22, 20, 21, 19],
-    description:
-      'erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam',
+    name: 'Telugu',
+    teacher: 30,
+    lessons: [
+      { name: 'Casanova', description: 'pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus' },
+      {
+        name: 'Veer Zaara',
+        description:
+          'consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer',
+      },
+      {
+        name: 'Our Beloved Month of August (Aquele Querido Mês de Agosto)',
+        description: 'donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi',
+      },
+    ],
+    tags: ['nulla', 'vitae', 'curabitur', 'pede', 'vestibulum', 'vulputate', 'ligula'],
   },
   {
     id: 16,
-    name: 'Boys, Les',
-    teacher: 23,
-    classes: [5],
-    tags: [9, 8, 8, 3],
-    students: [33, 10, 26, 6, 28, 9, 38, 43, 34, 26, 46],
-    description:
-      'libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus',
+    name: 'Luxembourgish',
+    teacher: 29,
+    lessons: [
+      {
+        name: 'Bachelorette',
+        description: 'felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut',
+      },
+      {
+        name: 'Three-Step Dance',
+        description:
+          'augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus',
+      },
+      {
+        name: 'World of Apu, The (Apur Sansar)',
+        description:
+          'sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus',
+      },
+    ],
+    tags: ['nam', 'vestibulum', 'non'],
   },
   {
     id: 17,
-    name: 'Reflecting Skin, The',
-    teacher: 31,
-    classes: [5, 7, 7, 9, 10, 5, 9, 3, 2, 6, 10, 7, 6, 6],
-    tags: [4, 2, 8, 8, 6],
-    students: [35, 48, 17, 15, 27, 45, 20, 24, 38, 46],
-    description: 'tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis',
+    name: 'Hungarian',
+    teacher: 17,
+    lessons: [
+      { name: 'FairyTale: A True Story', description: 'eu nibh quisque id justo sit amet sapien dignissim vestibulum' },
+    ],
+    tags: ['nulla', 'sapien', 'vulputate', 'ultrices'],
   },
   {
     id: 18,
-    name: 'Shoot to Kill',
-    teacher: 26,
-    classes: [10, 7, 7, 7, 10, 2, 10, 10, 10, 7, 10, 6, 10, 6, 3],
-    tags: [6, 4, 1, 5, 4, 5, 3, 10, 7],
-    students: [37, 45, 15, 24, 27, 12, 6, 15, 36, 48, 26, 5, 40],
-    description: 'at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat',
+    name: 'Guaraní',
+    teacher: 12,
+    lessons: [
+      {
+        name: 'Sextette',
+        description:
+          'augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus',
+      },
+      {
+        name: 'Anne Frank Remembered',
+        description: 'amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis',
+      },
+      {
+        name: 'Cat and the Canary, The',
+        description: 'pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu',
+      },
+      {
+        name: 'Passenger Side',
+        description: 'augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis',
+      },
+      {
+        name: 'Bright Lights (Adventures in Africa)',
+        description: 'ipsum praesent blandit lacinia erat vestibulum sed magna at nunc',
+      },
+    ],
+    tags: ['non', 'felis', 'metus'],
   },
   {
     id: 19,
-    name: 'Beauty and the Beast: The Enchanted Christmas',
-    teacher: 26,
-    classes: [9, 1, 5, 8, 4, 1, 8, 3, 8, 2, 5, 5, 8, 10, 6, 1, 6, 7, 9, 9],
-    tags: [1, 5],
-    students: [33, 38, 29, 11, 19, 12, 12, 14, 37, 22, 37, 38, 45, 35, 6, 8, 17, 15, 37],
-    description: 'praesent blandit lacinia erat vestibulum sed magna at nunc commodo',
+    name: 'Bulgarian',
+    teacher: 16,
+    lessons: [
+      {
+        name: 'Best of Times, The (Mei li shi guang)',
+        description:
+          'interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit',
+      },
+    ],
+    tags: ['rhoncus', 'et'],
   },
   {
     id: 20,
-    name: 'Dave',
-    teacher: 14,
-    classes: [10, 8],
-    tags: [1, 9, 3, 6, 5, 9],
-    students: [42, 36, 8, 27, 5, 11, 25, 20, 33],
-    description:
-      'ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes',
+    name: 'Croatian',
+    teacher: 19,
+    lessons: [
+      {
+        name: 'Charlie Chan in Shanghai',
+        description:
+          'porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi',
+      },
+      {
+        name: 'Cabin Fever 2: Spring Fever',
+        description:
+          'dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa',
+      },
+      {
+        name: 'ID:A',
+        description: 'nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem',
+      },
+      {
+        name: 'Secret of Kells, The',
+        description:
+          'pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien',
+      },
+    ],
+    tags: ['at', 'nam', 'justo', 'nisl'],
   },
   {
     id: 21,
-    name: 'Shriek of the Mutilated',
-    teacher: 47,
-    classes: [6, 8, 10, 2, 2, 9, 7, 7, 6, 6, 3, 6, 10],
-    tags: [4, 1, 7, 6],
-    students: [41, 19, 26, 28, 7, 18, 11, 38, 46, 1],
-    description:
-      'aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent',
+    name: 'Gujarati',
+    teacher: 15,
+    lessons: [
+      {
+        name: 'Legend of Sleepy Hollow, The',
+        description:
+          'ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus',
+      },
+      {
+        name: 'Printed Rainbow',
+        description: 'magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis',
+      },
+    ],
+    tags: ['praesent', 'accumsan', 'faucibus', 'mollis', 'et', 'pellentesque', 'maecenas', 'integer', 'et'],
   },
   {
     id: 22,
-    name: 'City of Fear',
-    teacher: 1,
-    classes: [6, 3, 4, 9, 4, 7, 3, 4, 4],
-    tags: [6, 1, 10, 4, 10, 3, 8, 1, 4],
-    students: [35, 33, 4, 23],
-    description: 'ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus',
+    name: 'Quechua',
+    teacher: 29,
+    lessons: [
+      {
+        name: 'Body of War',
+        description: 'vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae',
+      },
+    ],
+    tags: ['cubilia', 'sollicitudin', 'lacus', 'integer', 'fusce'],
   },
   {
     id: 23,
-    name: 'Happy Times (Xingfu shiguang)',
-    teacher: 44,
-    classes: [4, 9, 4, 10, 1, 8, 10],
-    tags: [6, 6, 3, 3, 7, 3, 6, 4, 7, 7],
-    students: [45],
-    description:
-      'vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa',
+    name: 'English',
+    teacher: 30,
+    lessons: [
+      {
+        name: 'Outfit, The',
+        description: 'pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta',
+      },
+      {
+        name: 'Evil Dead II (Dead by Dawn)',
+        description: 'libero rutrum ac lobortis vel dapibus at diam nam tristique',
+      },
+      { name: 'Q', description: 'leo rhoncus sed vestibulum sit amet cursus id turpis integer' },
+      {
+        name: 'Trouble with Angels, The',
+        description:
+          'platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi',
+      },
+      {
+        name: 'Breaker! Breaker!',
+        description:
+          'ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit',
+      },
+    ],
+    tags: ['massa', 'eros'],
   },
   {
     id: 24,
-    name: 'Cameraman, The',
-    teacher: 24,
-    classes: [5, 10, 6, 3, 5],
-    tags: [4, 8, 2],
-    students: [34, 12, 22, 6, 46],
-    description: 'nulla nisl nunc nisl duis bibendum felis sed interdum venenatis',
+    name: 'Swedish',
+    teacher: 36,
+    lessons: [
+      {
+        name: 'Out of Africa',
+        description:
+          'nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non',
+      },
+      {
+        name: 'Across 110th Street',
+        description:
+          'nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac',
+      },
+      {
+        name: 'RoboCop 3',
+        description:
+          'maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi',
+      },
+      {
+        name: 'Generation Kill',
+        description:
+          'sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus',
+      },
+      {
+        name: 'First Love (Primo Amore)',
+        description:
+          'primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse',
+      },
+    ],
+    tags: ['lacus'],
   },
   {
     id: 25,
-    name: 'Seasoning House, The',
-    teacher: 32,
-    classes: [1, 2, 8, 4, 7],
-    tags: [7, 4, 6, 9],
-    students: [42, 21, 32, 31, 24, 33, 40, 35, 25, 2, 4, 4, 32, 34, 38, 40, 18, 36, 37],
-    description: 'nullam porttitor lacus at turpis donec posuere metus vitae ipsum',
+    name: 'Haitian Creole',
+    teacher: 39,
+    lessons: [
+      {
+        name: 'Murk (Mørke)',
+        description:
+          'nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec',
+      },
+      { name: 'Crime Spree', description: 'non velit nec nisi vulputate nonummy maecenas tincidunt lacus at' },
+      {
+        name: 'Tortilla Soup',
+        description:
+          'suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum',
+      },
+      {
+        name: 'Nenette and Boni (Nénette et Boni)',
+        description: 'tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit',
+      },
+      {
+        name: 'Up the Sandbox',
+        description:
+          'id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis',
+      },
+    ],
+    tags: ['odio'],
   },
   {
     id: 26,
-    name: "Emperor's New Groove, The",
-    teacher: 40,
-    classes: [10, 10],
-    tags: [10, 6, 4, 2, 1, 6, 8, 1, 9],
-    students: [6, 30, 27, 22, 20, 8, 16, 48, 4, 9, 18, 1, 5, 25, 2],
-    description: 'hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget',
+    name: 'Fijian',
+    teacher: 29,
+    lessons: [
+      {
+        name: 'Hideaway',
+        description: 'maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque',
+      },
+      {
+        name: 'Colorado Territory',
+        description:
+          'elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis',
+      },
+      {
+        name: 'Air Bud',
+        description: 'neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui',
+      },
+    ],
+    tags: ['tincidunt', 'nunc', 'vulputate', 'viverra', 'arcu', 'augue', 'ut'],
   },
   {
     id: 27,
-    name: 'The Mule',
-    teacher: 26,
-    classes: [3, 10, 1, 10, 7, 6, 1, 2, 9, 4, 6, 4, 2, 9, 8],
-    tags: [5],
-    students: [33, 49, 27, 28, 46, 29],
-    description: 'neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit',
+    name: 'Nepali',
+    teacher: 37,
+    lessons: [
+      {
+        name: 'Five Fingers',
+        description:
+          'nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis',
+      },
+    ],
+    tags: ['viverra', 'nulla', 'felis', 'mauris', 'tortor', 'aenean'],
   },
   {
     id: 28,
-    name: 'Marc Maron: Thinky Pain',
-    teacher: 36,
-    classes: [4, 5, 9, 6, 1, 4, 1, 3, 6, 6, 4, 2, 1],
-    tags: [4, 6, 9, 10],
-    students: [47, 13, 40, 28, 40, 18],
-    description:
-      'sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit',
+    name: 'Indonesian',
+    teacher: 44,
+    lessons: [
+      {
+        name: 'Songcatcher',
+        description:
+          'purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis',
+      },
+    ],
+    tags: ['in', 'rutrum', 'vulputate', 'aliquam', 'duis', 'odio', 'magna'],
   },
   {
     id: 29,
-    name: 'Wuthering Heights',
-    teacher: 37,
-    classes: [3, 6, 10, 5, 1, 5, 6],
-    tags: [9],
-    students: [32],
-    description:
-      'diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in',
+    name: 'Dhivehi',
+    teacher: 34,
+    lessons: [
+      {
+        name: 'Chang: A Drama of the Wilderness',
+        description:
+          'magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus',
+      },
+      {
+        name: 'Blind Faith',
+        description:
+          'consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante',
+      },
+      {
+        name: 'Four Sided Triangle',
+        description:
+          'odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit',
+      },
+    ],
+    tags: ['ligula', 'mauris', 'nam', 'ultrices', 'id', 'donec', 'nunc', 'ut'],
   },
   {
     id: 30,
-    name: 'What a Girl Wants',
-    teacher: 29,
-    classes: [2, 10, 4, 7, 7, 4, 10, 5, 2, 2, 1, 1, 9],
-    tags: [2],
-    students: [22, 49, 38, 46, 39, 17, 42, 49, 5, 18, 14, 12, 17, 14, 33, 6],
-    description: 'quam a odio in hac habitasse platea dictumst maecenas ut massa',
+    name: 'Bosnian',
+    teacher: 32,
+    lessons: [
+      {
+        name: 'Box, The',
+        description: 'integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna',
+      },
+    ],
+    tags: ['vehicula', 'metus'],
   },
   {
     id: 31,
-    name: 'Bannen Way, The',
-    teacher: 34,
-    classes: [3, 6, 6, 5, 7, 9, 6],
-    tags: [6],
-    students: [13, 8, 3, 16, 12, 21, 16, 12, 26, 22, 50, 2, 13, 19, 42, 45, 28, 46, 23],
-    description: 'morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh',
+    name: 'Bengali',
+    teacher: 39,
+    lessons: [
+      {
+        name: 'Negative Happy Chainsaw Edge (Negatibu happî chênsô ejji)',
+        description:
+          'ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec',
+      },
+      {
+        name: 'Violence at Noon (Hakuchu no torima)',
+        description:
+          'quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec',
+      },
+      {
+        name: 'The Little Death',
+        description:
+          'primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut',
+      },
+      {
+        name: 'World of Suzie Wong, The',
+        description: 'sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio',
+      },
+    ],
+    tags: ['lobortis', 'nibh', 'proin'],
   },
   {
     id: 32,
-    name: 'Horse in the Gray Flannel Suit, The',
-    teacher: 47,
-    classes: [10, 5],
-    tags: [10, 9, 6, 9, 7, 2, 5, 10, 8],
-    students: [23, 42, 34, 22, 24],
-    description: 'donec quis orci eget orci vehicula condimentum curabitur in libero ut massa',
+    name: 'Moldovan',
+    teacher: 28,
+    lessons: [
+      {
+        name: 'Cherry Blossoms (Kirschblüten - Hanami)',
+        description: 'vestibulum vestibulum ante ipsum primis in faucibus orci luctus et',
+      },
+      {
+        name: 'Tintin and I',
+        description: 'tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac',
+      },
+    ],
+    tags: ['sed', 'et'],
   },
   {
     id: 33,
-    name: 'Masquerade (Gwanghai, Wangyidoen namja)',
-    teacher: 42,
-    classes: [10, 10, 9, 1, 1, 7, 8, 4],
-    tags: [1, 1, 7, 7, 4, 8],
-    students: [26, 1, 36],
-    description: 'non sodales sed tincidunt eu felis fusce posuere felis sed',
+    name: 'Chinese',
+    teacher: 1,
+    lessons: [
+      {
+        name: 'Platoon',
+        description: 'sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium',
+      },
+    ],
+    tags: ['risus', 'quis', 'blandit', 'lacus'],
   },
   {
     id: 34,
-    name: 'Thirteen Days',
-    teacher: 11,
-    classes: [2, 3, 7, 2, 6, 3, 9, 8, 6, 5, 5, 3, 6, 3, 8, 10],
-    tags: [3, 7, 10, 2, 7, 8, 8],
-    students: [38, 11, 23, 22, 33, 1, 24, 15, 14, 20, 36, 22],
-    description: 'quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce',
+    name: 'Lao',
+    teacher: 42,
+    lessons: [
+      {
+        name: 'Learning Curve, The',
+        description:
+          'cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum',
+      },
+      {
+        name: 'Hangover, The',
+        description:
+          'erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae',
+      },
+      {
+        name: "Off the Menu: The Last Days of Chasen's",
+        description: 'non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh',
+      },
+      {
+        name: 'Mark of the Devil (Hexen bis aufs Blut gequält)',
+        description:
+          'ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis',
+      },
+      {
+        name: 'Wristcutters: A Love Story',
+        description:
+          'est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien',
+      },
+    ],
+    tags: ['pretium', 'elementum', 'id', 'congue', 'neque', 'arcu'],
   },
   {
     id: 35,
-    name: "Fellini's Casanova (Il Casanova di Federico Fellini)",
-    teacher: 21,
-    classes: [5, 10, 8, 3, 5, 9, 3, 9, 3],
-    tags: [1, 8, 7],
-    students: [30, 4, 22, 8, 11, 30, 38, 47, 6, 30, 4, 36, 19],
-    description:
-      'quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum',
+    name: 'Portuguese',
+    teacher: 41,
+    lessons: [
+      {
+        name: 'Great Ziegfeld, The',
+        description: 'a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut',
+      },
+      {
+        name: 'Waist Deep',
+        description:
+          'consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices',
+      },
+      {
+        name: 'Someone Like You (Unnaipol Oruvan)',
+        description: 'a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla',
+      },
+      {
+        name: 'Net 2.0, The ',
+        description: 'suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in',
+      },
+    ],
+    tags: ['sit', 'lacinia'],
   },
   {
     id: 36,
-    name: 'Under the Lighthouse Dancing',
-    teacher: 9,
-    classes: [2, 8],
-    tags: [4, 10, 3, 10, 9, 10, 8],
-    students: [39, 17, 47, 1, 32, 44, 28, 13],
-    description: 'ut nulla sed accumsan felis ut at dolor quis odio',
+    name: 'Afrikaans',
+    teacher: 7,
+    lessons: [
+      {
+        name: 'Internecine Project, The',
+        description: 'ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique',
+      },
+      {
+        name: 'Hans (Kukkulan kuningas) ',
+        description:
+          'nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes',
+      },
+    ],
+    tags: ['consectetuer', 'viverra', 'praesent'],
   },
   {
     id: 37,
-    name: 'Housesitter',
-    teacher: 32,
-    classes: [5, 7, 2, 4, 3, 6, 10, 1, 6, 9, 3, 5],
-    tags: [1, 10, 6, 5],
-    students: [32, 37, 17, 16, 8, 21, 7, 47, 36, 13, 13, 15, 9, 12, 44, 29, 28],
-    description: 'eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus',
+    name: 'Pashto',
+    teacher: 21,
+    lessons: [
+      {
+        name: 'Whispers in the Dark',
+        description:
+          'porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit',
+      },
+      {
+        name: "Breakfast at Tiffany's",
+        description: 'sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante',
+      },
+      { name: 'Isle, The (Seom)', description: 'luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh' },
+    ],
+    tags: ['integer'],
   },
   {
     id: 38,
-    name: 'Sorority House Massacre II',
-    teacher: 47,
-    classes: [8, 3, 10, 1, 10, 10, 2, 6],
-    tags: [2],
-    students: [37, 33, 43, 27, 38, 46],
-    description: 'ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices',
+    name: 'Icelandic',
+    teacher: 3,
+    lessons: [
+      {
+        name: '8 Diagram Pole Fighter, The (a.k.a. Invincible Pole Fighter) (Wu Lang ba gua gun)',
+        description: 'eu nibh quisque id justo sit amet sapien dignissim vestibulum',
+      },
+      {
+        name: 'Win a Date with Tad Hamilton!',
+        description:
+          'magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis',
+      },
+      {
+        name: 'First Deadly Sin, The',
+        description: 'tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac',
+      },
+    ],
+    tags: ['curabitur', 'est', 'etiam', 'hac', 'hac', 'magna'],
   },
   {
     id: 39,
-    name: 'Mudlark, The',
-    teacher: 16,
-    classes: [8, 9, 5, 7, 7],
-    tags: [7, 6, 6, 6, 5, 5, 3, 6, 7, 6],
-    students: [45, 21, 42, 3, 40, 7, 46, 2, 46, 17, 41, 13, 39, 14, 50, 24, 36],
-    description: 'dolor sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam',
+    name: 'Fijian',
+    teacher: 48,
+    lessons: [
+      {
+        name: 'Scent of a Woman',
+        description:
+          'duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh',
+      },
+      {
+        name: 'Taken',
+        description: 'risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc',
+      },
+      { name: 'Hot Pepper', description: 'dui vel sem sed sagittis nam congue risus semper porta volutpat quam' },
+      {
+        name: 'Deficit (Déficit)',
+        description:
+          'sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed',
+      },
+    ],
+    tags: ['condimentum', 'elit', 'praesent', 'cubilia', 'lacinia', 'erat', 'consequat', 'nulla'],
   },
   {
     id: 40,
-    name: 'Topper',
-    teacher: 28,
-    classes: [1, 5, 2, 1, 1, 6],
-    tags: [4],
-    students: [14, 24, 19, 32, 31, 19, 30, 42, 34, 22, 13, 20, 10, 46, 29, 10, 47, 22, 12],
-    description:
-      'risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis',
+    name: 'Hebrew',
+    teacher: 29,
+    lessons: [
+      {
+        name: 'Day of the Doctor, The',
+        description: 'scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus',
+      },
+      { name: 'Tin Cup', description: 'nunc nisl duis bibendum felis sed interdum venenatis turpis enim' },
+      {
+        name: 'Late Shift, The',
+        description: 'faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel',
+      },
+      {
+        name: 'RocketMan (a.k.a. Rocket Man)',
+        description: 'vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien',
+      },
+      {
+        name: 'Spider-Man 3',
+        description: 'neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis',
+      },
+    ],
+    tags: ['diam', 'parturient'],
   },
   {
     id: 41,
-    name: '12th & Delaware',
-    teacher: 37,
-    classes: [1],
-    tags: [7, 10, 3, 5, 10, 2],
-    students: [13, 3, 13, 34, 10, 36, 13, 35, 37, 10, 47, 13, 33, 23],
-    description: 'non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis',
+    name: 'Estonian',
+    teacher: 10,
+    lessons: [
+      {
+        name: 'Going Places (Valseuses, Les)',
+        description:
+          'tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec',
+      },
+      {
+        name: 'Ragnarok',
+        description:
+          'at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante',
+      },
+      {
+        name: 'Yellow Cab Man, The',
+        description: 'integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id',
+      },
+      {
+        name: 'Hasty Heart, The',
+        description: 'donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo',
+      },
+    ],
+    tags: ['velit'],
   },
   {
     id: 42,
-    name: 'Mr. Deeds Goes to Town',
-    teacher: 16,
-    classes: [1, 3, 8, 1, 2, 1, 6, 1, 3, 4, 4, 7, 2, 5, 10, 10, 8],
-    tags: [3, 9, 2, 5, 4],
-    students: [42, 46, 13, 37, 19, 1, 25, 43],
-    description:
-      'rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc',
+    name: 'Afrikaans',
+    teacher: 3,
+    lessons: [
+      { name: 'Bug', description: 'eget tincidunt eget tempus vel pede morbi porttitor lorem id' },
+      {
+        name: 'Long Day Closes, The',
+        description: 'pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper',
+      },
+      {
+        name: 'Kurt & Courtney',
+        description:
+          'in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante',
+      },
+    ],
+    tags: ['tortor', 'accumsan', 'consequat', 'erat', 'ut', 'aliquet', 'id', 'at'],
   },
   {
     id: 43,
-    name: 'Familie, En',
-    teacher: 39,
-    classes: [9, 5, 4, 4, 4, 7, 9, 6, 2, 1, 8, 2, 5, 2, 7, 2, 10, 7, 7],
-    tags: [9, 10, 2, 8, 10, 1, 10, 10, 4, 1],
-    students: [6, 5, 11, 10, 20, 30, 48, 50, 13, 10, 22],
-    description: 'purus eu magna vulputate luctus cum sociis natoque penatibus et',
+    name: 'Burmese',
+    teacher: 1,
+    lessons: [
+      {
+        name: 'How to Make Money Selling Drugs',
+        description: 'sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh',
+      },
+      {
+        name: "You're Next",
+        description: 'dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque',
+      },
+      { name: 'Sweet Rush (Tatarak)', description: 'sit amet eros suspendisse accumsan tortor quis turpis sed ante' },
+      { name: 'Iron Eagle II', description: 'nulla suspendisse potenti cras in purus eu magna vulputate luctus cum' },
+    ],
+    tags: ['lobortis', 'at', 'curae', 'tempus', 'ante', 'mus', 'auctor', 'pharetra'],
   },
   {
     id: 44,
-    name: 'Wolf Creek',
-    teacher: 5,
-    classes: [3, 2, 8, 1, 7, 6, 9, 5, 10, 3, 4, 10, 7, 3, 7, 8],
-    tags: [1, 7, 10, 7, 1, 7],
-    students: [34, 45, 47, 30, 7, 14, 25, 31, 11],
-    description:
-      'varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla',
+    name: 'Icelandic',
+    teacher: 11,
+    lessons: [
+      {
+        name: 'Luminarias',
+        description:
+          'sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam',
+      },
+      { name: 'Stage Struck', description: 'enim sit amet nunc viverra dapibus nulla suscipit ligula in' },
+      {
+        name: 'Three Stooges, The',
+        description:
+          'justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie',
+      },
+      {
+        name: 'Pulling Strings',
+        description: 'in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis',
+      },
+      {
+        name: 'Hollow Reed',
+        description:
+          'rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat',
+      },
+    ],
+    tags: ['est', 'sagittis', 'blandit', 'praesent', 'commodo', 'dui', 'vestibulum', 'nisl', 'non', 'ultrices'],
   },
   {
     id: 45,
-    name: 'Union Square',
-    teacher: 38,
-    classes: [2, 5, 2, 8],
-    tags: [8, 4, 10, 2, 7, 2, 8, 10, 10, 5],
-    students: [1, 31, 3, 16, 47],
-    description: 'quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique tortor',
+    name: 'Kurdish',
+    teacher: 40,
+    lessons: [
+      {
+        name: '3some (Castillos de cartón)',
+        description: 'duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi',
+      },
+      {
+        name: 'Mac',
+        description:
+          'purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique tortor eu',
+      },
+      {
+        name: 'The New Centurions',
+        description: 'semper sapien a libero nam dui proin leo odio porttitor id consequat in',
+      },
+      {
+        name: "Killer's Kiss",
+        description:
+          'habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent',
+      },
+    ],
+    tags: ['mattis', 'enim', 'venenatis', 'fermentum', 'ut', 'primis', 'erat', 'ipsum', 'id'],
   },
   {
     id: 46,
-    name: "Astronaut's Wife, The",
-    teacher: 37,
-    classes: [5, 1, 8, 7, 6, 7, 2, 10, 1, 9, 7, 7, 2, 6],
-    tags: [7, 4, 10, 8, 7, 8, 2, 10, 8],
-    students: [17, 28, 31, 30, 31, 44, 3, 17, 40, 17, 49, 33, 15, 37],
-    description: 'in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum',
+    name: 'Telugu',
+    teacher: 28,
+    lessons: [
+      {
+        name: 'Shopgirl',
+        description:
+          'aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia',
+      },
+      {
+        name: 'Royal Scandal, The',
+        description: 'lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea',
+      },
+      {
+        name: 'Liberation of L.B. Jones, The',
+        description:
+          'pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla',
+      },
+    ],
+    tags: ['ut', 'augue', 'pulvinar', 'nulla'],
   },
   {
     id: 47,
-    name: 'Christmas in Connecticut',
-    teacher: 8,
-    classes: [8, 2],
-    tags: [3],
-    students: [26, 12, 45],
-    description:
-      'ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices',
+    name: 'Dari',
+    teacher: 1,
+    lessons: [
+      {
+        name: 'Hotel',
+        description: 'tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula',
+      },
+      {
+        name: "Relax... It's Just Sex",
+        description:
+          'neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim',
+      },
+      {
+        name: 'Rampage',
+        description:
+          'nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo',
+      },
+      {
+        name: 'Trip, The',
+        description:
+          'risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis',
+      },
+      {
+        name: "Captain's Paradise, The",
+        description:
+          'dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia',
+      },
+    ],
+    tags: ['enim', 'a', 'sed', 'lorem', 'tortor', 'in', 'nunc'],
   },
   {
     id: 48,
-    name: 'Phantasm II',
-    teacher: 25,
-    classes: [7, 6, 3, 8, 3, 3, 7, 1, 10, 8, 6, 1, 8, 8, 4, 1, 3, 10, 7],
-    tags: [4, 8, 7, 6],
-    students: [40, 24, 10, 25, 7, 45, 20],
-    description: 'nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem',
+    name: 'Arabic',
+    teacher: 34,
+    lessons: [
+      {
+        name: 'Pretty Devils',
+        description:
+          'ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui',
+      },
+      {
+        name: 'Five Dedicated to Ozu',
+        description: 'vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa',
+      },
+      {
+        name: 'Micmacs (Micmacs à tire-larigot)',
+        description: 'in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit',
+      },
+    ],
+    tags: ['lacinia', 'iaculis', 'leo', 'suspendisse', 'ultrices'],
   },
   {
     id: 49,
-    name: 'Manta, Manta',
-    teacher: 37,
-    classes: [4, 2],
-    tags: [3, 9, 3, 3, 5],
-    students: [35, 45, 40],
-    description: 'donec semper sapien a libero nam dui proin leo odio porttitor',
+    name: 'Tok Pisin',
+    teacher: 2,
+    lessons: [
+      {
+        name: 'Once Upon a Time in Shanghai',
+        description:
+          'magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum',
+      },
+      {
+        name: 'Living Skeleton, The (Kyûketsu dokuro-sen)',
+        description: 'nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam',
+      },
+      {
+        name: 'Movie Crazy',
+        description:
+          'nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum',
+      },
+      {
+        name: 'No Logo',
+        description:
+          'orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis',
+      },
+    ],
+    tags: ['sed', 'varius', 'lacus', 'luctus', 'eros', 'aliquam'],
   },
   {
     id: 50,
-    name: 'Kongo',
-    teacher: 12,
-    classes: [9, 8, 3, 1, 2, 8, 4, 7, 6, 9],
-    tags: [1, 10, 2, 4, 2],
-    students: [22, 45, 49, 2, 50, 50, 24, 6, 21, 18, 30, 41, 16, 4, 16, 44, 36],
-    description: 'felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec',
-  },
-  {
-    id: 51,
-    name: 'The Road to Glory',
-    teacher: 18,
-    classes: [10, 4, 10, 10, 7, 7],
-    tags: [4],
-    students: [2, 15, 37],
-    description: 'curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue',
-  },
-  {
-    id: 52,
-    name: 'Bowery at Midnight',
-    teacher: 6,
-    classes: [2],
-    tags: [8, 3, 9, 7],
-    students: [23],
-    description: 'massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio',
-  },
-  {
-    id: 53,
-    name: 'Bio Zombie (Sun faa sau si)',
-    teacher: 3,
-    classes: [10, 5, 6, 2, 2, 7, 6, 7, 2, 7, 1, 5, 3, 6, 4, 1, 5, 1, 6],
-    tags: [8, 8, 7, 1, 7, 9, 5, 2, 5],
-    students: [22, 7, 38, 28, 25, 19, 37, 42, 49, 10, 18, 29, 33, 18, 5, 13, 44, 2, 28],
-    description: 'eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis',
-  },
-  {
-    id: 54,
-    name: 'Asthenic Syndrome, The (Astenicheskiy sindrom)',
-    teacher: 14,
-    classes: [10, 7, 3, 4, 7, 4, 10, 6, 8, 5, 7, 5, 1, 9, 10, 9, 6, 9],
-    tags: [8],
-    students: [46, 38, 5, 19, 13, 20, 23, 15, 20, 38, 3, 29, 10, 23, 47, 11, 32, 2],
-    description: 'nec dui luctus rutrum nulla tellus in sagittis dui vel nisl',
-  },
-  {
-    id: 55,
-    name: 'Somersault',
-    teacher: 31,
-    classes: [4, 7, 1, 1, 4],
-    tags: [5, 8, 4, 9, 10, 5],
-    students: [15, 41, 30, 49, 8, 19, 14],
-    description:
-      'natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus',
-  },
-  {
-    id: 56,
-    name: 'Thunderbirds',
-    teacher: 40,
-    classes: [4, 5, 8, 5, 1, 1, 2, 4, 1, 3, 4, 2, 4, 9, 5, 4, 8, 6, 9],
-    tags: [10, 4],
-    students: [21, 49, 13, 16, 2, 33, 3, 40, 43, 2, 44, 50, 8, 23, 26, 39],
-    description: 'nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in',
-  },
-  {
-    id: 57,
-    name: 'How to Lose Friends & Alienate People',
-    teacher: 50,
-    classes: [8, 6, 1, 5, 4, 5, 9, 8, 5, 2, 3, 5, 8, 1, 5],
-    tags: [8, 6, 4, 7, 8, 10, 6, 10, 6],
-    students: [41, 1, 47, 3, 27, 45, 3, 22],
-    description:
-      'nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan',
-  },
-  {
-    id: 58,
-    name: 'An Empress and the Warriors',
-    teacher: 43,
-    classes: [2, 2, 4, 10, 4, 4, 1, 4, 1, 8, 7],
-    tags: [8, 8],
-    students: [39, 14, 15, 42, 27, 18, 41, 18, 15, 37, 25, 26, 36, 34, 42],
-    description: 'non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci',
-  },
-  {
-    id: 59,
-    name: 'Sabretooth',
-    teacher: 6,
-    classes: [5, 1, 10, 8, 6, 1, 5, 3],
-    tags: [6, 7, 1, 5, 6, 5, 7],
-    students: [15, 47, 20, 20, 10, 9, 24, 35, 50, 1],
-    description: 'ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero',
-  },
-  {
-    id: 60,
-    name: 'Airport 1975',
-    teacher: 49,
-    classes: [10, 3, 4, 5, 10, 3, 8, 5, 1, 7, 8, 8, 4, 8, 10, 5, 3, 9],
-    tags: [8, 5, 4, 10, 2, 5, 6, 1],
-    students: [12],
-    description: 'auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis',
-  },
-  {
-    id: 61,
-    name: 'Bride Flight',
-    teacher: 14,
-    classes: [10, 6, 8, 5, 9, 1, 4, 10, 5, 4, 1, 3],
-    tags: [3, 1, 7, 7, 4, 5],
-    students: [16, 28, 32, 33, 39, 23, 10, 30, 28, 9, 7, 17, 42, 33, 36, 36, 45],
-    description:
-      'odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit',
-  },
-  {
-    id: 62,
-    name: 'Lightning Strikes Twice',
-    teacher: 42,
-    classes: [4, 8, 3, 8],
-    tags: [3, 3, 5, 9, 4, 10],
-    students: [21, 35],
-    description:
-      'sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget',
-  },
-  {
-    id: 63,
-    name: 'Bright Days Ahead',
-    teacher: 1,
-    classes: [2, 10, 4, 5, 4, 2, 5, 10, 3, 5, 9],
-    tags: [10, 3, 4, 7, 3, 6, 3, 9],
-    students: [23, 24, 46, 44, 49, 36, 21, 41],
-    description: 'accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi',
-  },
-  {
-    id: 64,
-    name: 'Powers of Ten',
-    teacher: 30,
-    classes: [3, 1, 6, 10, 6, 5, 8, 8, 10, 6, 4, 7, 1, 3, 8, 3, 3],
-    tags: [2, 6, 10],
-    students: [38, 24, 6, 5, 37, 41, 29, 37, 8, 28, 29, 32, 24, 43],
-    description:
-      'condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique',
-  },
-  {
-    id: 65,
-    name: 'Return to the Blue Lagoon',
-    teacher: 6,
-    classes: [8, 5, 8, 10, 2, 5, 1, 3, 5, 5, 1, 8, 1, 6, 4, 6, 4, 8],
-    tags: [3, 7, 7, 3, 1, 3, 5, 3],
-    students: [25, 41, 20, 23, 29],
-    description: 'congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium',
-  },
-  {
-    id: 66,
-    name: 'To Kill a Priest',
-    teacher: 17,
-    classes: [10, 7, 3, 4, 3, 6, 6, 7, 2, 1, 4, 2, 8, 6, 2, 9, 2, 7, 1, 1],
-    tags: [8, 4, 5, 4, 9, 10, 8, 8],
-    students: [26, 23, 30, 45, 33, 47, 11, 6, 47, 7],
-    description: 'nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris',
-  },
-  {
-    id: 67,
-    name: 'Listy do M.',
-    teacher: 13,
-    classes: [4, 6, 10, 3, 3, 9, 4, 1, 1, 8, 9, 3, 6, 6, 4, 1, 7, 1],
-    tags: [6, 5, 9, 3, 9, 6, 4, 2, 3, 1],
-    students: [23, 18, 30, 15, 22, 37, 50, 7, 39, 22, 44, 23, 35, 1, 22, 29, 37, 13, 17, 6],
-    description: 'nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque',
-  },
-  {
-    id: 68,
-    name: 'Pan',
-    teacher: 25,
-    classes: [2, 7, 10, 4],
-    tags: [6, 2, 4, 8, 4, 9, 9, 7, 7, 8],
-    students: [44, 4, 26, 39, 43, 1, 45, 49, 26, 43, 24, 20, 4, 19, 50, 20, 41],
-    description: 'vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris',
-  },
-  {
-    id: 69,
-    name: 'Azumi 2: Death or Love',
-    teacher: 5,
-    classes: [1, 9, 5, 3, 9, 8, 7, 6, 9, 1, 6, 9, 5, 7, 4, 9, 5, 9, 2],
-    tags: [4],
-    students: [9, 12, 35, 40, 32, 10, 10, 37, 16, 9, 5, 27, 48, 8],
-    description:
-      'donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi',
-  },
-  {
-    id: 70,
-    name: 'Red Line 7000',
-    teacher: 47,
-    classes: [6, 3, 5, 7, 2, 5, 5, 2, 6, 8, 10, 7, 1],
-    tags: [4, 5, 9, 3, 10],
-    students: [29, 48, 1, 34, 25, 18, 42, 4, 1, 34, 35, 32, 12, 1, 26, 9, 31, 7, 46],
-    description:
-      'rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat',
-  },
-  {
-    id: 71,
-    name: 'Seventh Seal, The (Sjunde inseglet, Det)',
-    teacher: 30,
-    classes: [3, 5],
-    tags: [2, 9, 9, 1, 1, 8],
-    students: [39, 28, 35, 4, 17, 50, 8, 42, 35, 27, 21, 24, 32, 18],
-    description: 'erat curabitur gravida nisi at nibh in hac habitasse platea dictumst',
-  },
-  {
-    id: 72,
-    name: 'Who Am I? (Wo shi shei)',
-    teacher: 23,
-    classes: [5, 4, 3, 3, 1, 10, 3, 1, 8, 1, 10],
-    tags: [1, 10, 10, 10],
-    students: [12, 20],
-    description:
-      'nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh',
-  },
-  {
-    id: 73,
-    name: 'Loulou',
-    teacher: 50,
-    classes: [4, 1, 3, 1, 2, 9, 4, 9, 6, 1, 9, 6, 4, 2, 3, 10],
-    tags: [6, 2],
-    students: [26, 11, 25, 36, 10],
-    description: 'eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum',
-  },
-  {
-    id: 74,
-    name: 'White Nights',
-    teacher: 15,
-    classes: [3, 8, 5, 9, 1, 2, 3, 2, 1, 3, 1, 8, 9, 2, 4],
-    tags: [6, 10],
-    students: [38, 20],
-    description: 'at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget',
-  },
-  {
-    id: 75,
-    name: 'Mysterious Lady, The',
-    teacher: 8,
-    classes: [5, 4, 3, 7, 4, 7, 5, 4, 5, 6, 8, 1, 2, 10, 10, 3, 8, 5, 7],
-    tags: [7, 3, 4, 3, 8, 6, 6, 9, 4],
-    students: [4, 10, 36, 44, 43, 3, 22, 8, 16, 20, 44, 14],
-    description: 'aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a',
-  },
-  {
-    id: 76,
-    name: 'Regret to Inform',
-    teacher: 37,
-    classes: [7, 8],
-    tags: [10, 3, 7, 6, 7, 5, 6, 3],
-    students: [16, 25, 37, 3, 7, 14, 36, 49, 40, 35, 15, 11, 25, 1, 38, 25, 43, 14, 32],
-    description: 'vestibulum quam sapien varius ut blandit non interdum in ante',
-  },
-  {
-    id: 77,
-    name: 'Brightness (Yeelen)',
-    teacher: 12,
-    classes: [1, 9, 4, 8, 5, 7, 2, 6, 8, 8, 10, 4, 10, 6, 5, 5, 1],
-    tags: [9, 8, 7, 10, 5],
-    students: [24],
-    description: 'blandit non interdum in ante vestibulum ante ipsum primis in faucibus',
-  },
-  {
-    id: 78,
-    name: 'Eaten Alive',
-    teacher: 11,
-    classes: [10, 5, 3, 1, 8, 1, 2],
-    tags: [9, 1, 3, 1, 8, 8, 8],
-    students: [39, 22, 4, 31, 13, 36, 7, 38, 9, 43, 5, 32, 44, 50, 7, 29, 30, 2, 9],
-    description: 'molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui',
-  },
-  {
-    id: 79,
-    name: 'True Legend (Su Qi-Er)',
-    teacher: 4,
-    classes: [10, 6, 5, 2, 1, 5, 5, 10],
-    tags: [7, 9, 10, 4, 6, 3, 5],
-    students: [31, 15, 27, 31, 12, 9, 32, 35, 1, 12, 4, 25, 22, 28, 14, 42],
-    description: 'donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis',
-  },
-  {
-    id: 80,
-    name: 'Desert Bloom',
-    teacher: 15,
-    classes: [9, 5, 9, 1, 4, 1, 9, 5, 9, 9, 10, 3, 5, 2, 3, 10, 4],
-    tags: [10, 10, 7, 7, 3, 7, 3, 6, 2, 7],
-    students: [3, 16, 35, 9, 22, 42, 50, 33, 37, 37, 42, 2, 19, 45],
-    description: 'egestas metus aenean fermentum donec ut mauris eget massa tempor convallis',
-  },
-  {
-    id: 81,
-    name: 'Day and Night (Le jour et la nuit)',
-    teacher: 4,
-    classes: [7, 6, 6, 3, 3, 9, 5, 2, 9, 5, 7],
-    tags: [10, 7, 6, 3, 10, 6, 9],
-    students: [2, 2, 11, 27, 12, 23, 20, 27, 47, 9, 17, 3],
-    description: 'suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae',
-  },
-  {
-    id: 82,
-    name: 'Dear Wendy',
-    teacher: 22,
-    classes: [2, 8, 3, 8, 5, 9, 9, 8, 5, 1, 3, 1, 6],
-    tags: [5, 7, 3],
-    students: [40, 13, 16, 49],
-    description:
-      'vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue',
-  },
-  {
-    id: 83,
-    name: 'Lines: Horizontal',
-    teacher: 8,
-    classes: [3, 7, 5, 10, 6, 8],
-    tags: [6, 2, 2, 8, 7, 2, 8, 9, 1],
-    students: [34, 31, 23, 41, 43, 24, 50, 16, 31, 24, 46, 38, 18, 18],
-    description: 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem',
-  },
-  {
-    id: 84,
-    name: 'Corporation, The',
-    teacher: 45,
-    classes: [7, 9, 10, 7, 7, 3, 5, 5],
-    tags: [9, 8, 3, 1, 4, 1, 8, 8, 5, 4],
-    students: [36, 24, 49, 24, 13, 21, 20],
-    description: 'erat curabitur gravida nisi at nibh in hac habitasse platea dictumst',
-  },
-  {
-    id: 85,
-    name: 'White Dog',
-    teacher: 17,
-    classes: [9, 5, 8, 10, 10, 2, 7],
-    tags: [7, 7, 9, 8, 1, 4, 5, 8],
-    students: [37],
-    description:
-      'vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed',
-  },
-  {
-    id: 86,
-    name: 'Godson, The',
-    teacher: 23,
-    classes: [5, 3],
-    tags: [4, 7, 6, 4, 6, 5, 3, 8, 7],
-    students: [3, 14, 4, 49, 2, 35],
-    description:
-      'elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus',
-  },
-  {
-    id: 87,
-    name: 'Graveyard of Honor (Shin jingi no hakaba)',
-    teacher: 18,
-    classes: [9, 4, 1],
-    tags: [2, 1, 7, 1],
-    students: [17, 49, 31, 31, 11, 9, 18],
-    description: 'eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam',
-  },
-  {
-    id: 88,
-    name: 'As You Like It',
-    teacher: 17,
-    classes: [1, 8, 9, 6, 2, 8, 4, 10, 4, 8, 8, 3, 1, 5, 1, 6, 1, 1],
-    tags: [2, 10, 9, 8],
-    students: [24, 4, 50, 26, 3, 42, 46, 33, 15, 30, 14],
-    description: 'integer a nibh in quis justo maecenas rhoncus aliquam lacus',
-  },
-  {
-    id: 89,
-    name: 'My Love Has Been Burning (Waga koi wa moenu)',
-    teacher: 17,
-    classes: [7, 3, 7, 5, 5, 7, 10, 10, 9, 9],
-    tags: [8, 2],
-    students: [30, 2, 2, 31, 15, 33],
-    description:
-      'volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc',
-  },
-  {
-    id: 90,
-    name: 'White Mane (Crin blanc: Le cheval sauvage)',
-    teacher: 23,
-    classes: [5, 8, 8, 3, 2, 8, 2, 8, 8, 5, 6, 9, 7, 4, 5],
-    tags: [7],
-    students: [22, 19, 49, 33, 32, 48, 45, 34, 1, 26, 33, 3, 14, 50, 38, 13],
-    description:
-      'mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus',
-  },
-  {
-    id: 91,
-    name: 'Johnson Family Vacation',
-    teacher: 45,
-    classes: [10, 9, 4, 1, 6, 7, 7, 9, 8, 4, 2, 8],
-    tags: [5, 9],
-    students: [26, 4, 7, 17, 35, 27, 26, 32, 2, 39, 8, 42, 2, 5, 33],
-    description: 'aliquet massa id lobortis convallis tortor risus dapibus augue vel',
-  },
-  {
-    id: 92,
-    name: 'Tomorrow, the World!',
-    teacher: 41,
-    classes: [9, 9, 5, 7, 9, 2, 9, 3, 10, 10, 9, 3, 10, 9, 7, 8, 4, 6, 10, 5],
-    tags: [1, 10, 7, 9, 8, 7, 10, 9, 7],
-    students: [49, 16, 6, 21, 23, 33, 15],
-    description: 'felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl',
-  },
-  {
-    id: 93,
-    name: 'Bending the Rules',
-    teacher: 35,
-    classes: [7, 9],
-    tags: [7, 3],
-    students: [36, 10, 14, 40, 7, 15, 13, 24],
-    description: 'dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque',
-  },
-  {
-    id: 94,
-    name: 'Blume in Love',
-    teacher: 38,
-    classes: [8, 9, 10, 9, 3],
-    tags: [4, 1, 9, 10, 1, 3],
-    students: [35, 34, 23, 45, 40, 45, 9, 46],
-    description: 'turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit',
-  },
-  {
-    id: 95,
-    name: 'As I Lay Dying',
+    name: 'Afrikaans',
     teacher: 34,
-    classes: [10, 10, 9, 7, 10, 6, 4, 2, 3, 9, 9, 1],
-    tags: [4],
-    students: [34, 25, 19, 8, 26, 9, 31, 4, 12, 28, 3, 25, 14, 24, 2, 21, 11, 12, 43],
-    description:
-      'morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor',
-  },
-  {
-    id: 96,
-    name: 'i hate myself :)',
-    teacher: 16,
-    classes: [4, 6, 9, 10, 6, 10, 6, 1, 10, 1],
-    tags: [6, 3, 6, 3, 5, 4, 1, 2],
-    students: [27, 15, 2, 29, 38, 27, 4, 19, 35, 30, 40, 33],
-    description: 'gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin',
-  },
-  {
-    id: 97,
-    name: 'Never Play Clever Again (Gendarme et les gendarmettes, Le)',
-    teacher: 4,
-    classes: [9, 6, 4, 9, 4, 10, 4, 9],
-    tags: [7, 10, 5, 1, 5, 6, 10, 3, 9],
-    students: [38, 49, 12, 50],
-    description: 'quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in',
-  },
-  {
-    id: 98,
-    name: 'Dark House, The (Dom zly)',
-    teacher: 7,
-    classes: [2, 4, 1, 9, 7, 9, 10, 8, 9, 2, 9, 3, 4, 3, 7, 5],
-    tags: [10, 2, 10, 6, 3, 3, 4, 6],
-    students: [40, 21, 37, 6, 40, 18, 3, 41, 42, 34, 50, 31, 44, 36],
-    description:
-      'lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget',
-  },
-  {
-    id: 99,
-    name: 'Second Woman, The',
-    teacher: 19,
-    classes: [3, 6, 7, 10, 6, 9, 8, 5, 7, 1, 9, 8, 3, 5, 6, 3, 10, 6, 7],
-    tags: [5, 9, 1, 7, 9],
-    students: [13, 40, 16, 14, 26, 20, 49, 25, 25, 32, 37, 2, 25, 25, 13, 15, 29, 46],
-    description: 'cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus',
+    lessons: [
+      {
+        name: 'Shrimp on the Barbie, The',
+        description: 'lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum',
+      },
+      {
+        name: 'Thank You a Lot',
+        description:
+          'lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra',
+      },
+      {
+        name: 'Easier with Practice',
+        description: 'dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio',
+      },
+    ],
+    tags: ['ac', 'justo', 'vitae', 'blandit', 'nullam', 'mattis', 'vestibulum', 'vehicula', 'donec'],
   },
 ];
 
