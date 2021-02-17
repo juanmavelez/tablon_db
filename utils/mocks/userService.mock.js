@@ -18,8 +18,8 @@ class UserServiceMock {
   }
 }
 
-function filteredUsersMock(interest) {
-  return usersMock.filter((user) => user.interest.includes(interest));
+function filteredUsersMock(tags) {
+  return usersMock.filter((user) => user.tags === tags);
 }
 
 module.exports = {

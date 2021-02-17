@@ -1,4 +1,6 @@
 const Joi = require('Joi');
+const { userIdSchema } = require('./user.schema');
+const { tagsIdSchema } = require('./tags.schema');
 
 const lessonNameSchema = Joi.string();
 const lessonDescriptionSchema = Joi.string();
@@ -7,18 +9,17 @@ const createLessonSchema = Joi.object({
   description: lessonDescriptionSchema,
 });
 
-const courseIdSchema = Joi.string().max(24);
+const courseIdSchema = Joi.string().regex(new RegExp('[0-9a-fA-F]{24}$'));
 const courseNameSchema = Joi.string().max(80);
-const courseTeacherSchema = Joi.number();
-const courseClassesSchema = Joi.array().items(createLessonSchema);
-const courseStudentsSchema = Joi.array().items(Joi.number());
-const courseTagSchema = Joi.array().items(Joi.string());
+const courseLessonsSchema = Joi.array().items(createLessonSchema);
+const courseStudentsSchema = Joi.array().items(userIdSchema);
+const courseTagSchema = tagsIdSchema;
 const courseDescriptionSchema = Joi.string();
 
 const createCourseSchema = Joi.object({
   name: courseNameSchema.required(),
-  teacher: courseTeacherSchema.required(),
-  classes: courseClassesSchema.required(),
+  teacher: userIdSchema.required(),
+  lessons: courseLessonsSchema.required(),
   tags: courseTagSchema.required(),
   students: courseStudentsSchema.required(),
   description: courseDescriptionSchema.required(),
@@ -26,8 +27,8 @@ const createCourseSchema = Joi.object({
 
 const updateCourseSchema = Joi.object({
   name: courseNameSchema,
-  teacher: courseTeacherSchema,
-  classes: courseClassesSchema,
+  teacher: userIdSchema,
+  lessons: courseLessonsSchema,
   tags: courseTagSchema,
   students: courseStudentsSchema,
   description: courseDescriptionSchema,

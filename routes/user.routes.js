@@ -24,7 +24,6 @@ function userApi(app) {
   router.get('/:userId', validationHandler({ userId: userIdSchema }, 'params'), async function (req, res, next) {
     try {
       const { userId } = req.params;
-      console.log(userId);
       const user = await userService.getUser({ userId });
       res.status(200).json({
         data: user,
@@ -36,8 +35,8 @@ function userApi(app) {
   });
 
   router.post('/', validationHandler(createUserSchema), async function (req, res, next) {
+    const { body: user } = req;
     try {
-      const { body: user } = req;
       const createdUser = await userService.createUser({ user });
       res.status(201).json({
         data: createdUser,

@@ -1,17 +1,23 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const { config } = require('./config');
 
 const userApi = require('./routes/user.routes');
 const courseApi = require('./routes/course.routes');
+const userCoursesApi = require('./routes/userCourses.routes');
 
 const { logErrors, errorHandler, wrapError } = require('../tablon_db/utils/middleware/errorHandler');
 const notFoundHandler = require('./utils/middleware/notFoundHandler');
 
 //body parser
+app.use(cors());
 app.use(express.json());
+
+//routers
 userApi(app);
 courseApi(app);
+userCoursesApi(app);
 
 //catch 404
 app.use(notFoundHandler);

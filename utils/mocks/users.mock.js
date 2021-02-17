@@ -4,7 +4,7 @@ const usersMock = [
     name: 'Angelico',
     surname: 'Tucsell',
     email: 'atucsell0@about.com',
-    tags: ['cubilia', 'semper', 'augue', 'lectus'],
+    tags: ['english', 'mathe', 'german'],
     courses: [13, 31],
   },
   { id: 2, name: 'Rasla', surname: 'Le Gallo', email: 'rlegallo1@ocn.ne.jp', tags: ['nisl'], courses: [35, 6] },
