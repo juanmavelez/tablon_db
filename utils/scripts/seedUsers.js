@@ -1,6 +1,4 @@
-// DEBUG=app:* node utils/scripts/seedMovies.js
-
-const chalk = require('chalk');
+// DEBUG=app:* node utils/scripts/seedUsers.js
 const debug = require('debug')('app:scripts:users');
 const MongoLib = require('../../lib/mongo');
 const usersMock = require('../mocks/users.mock');
@@ -10,11 +8,11 @@ async function seedMovies() {
     const mongoDB = new MongoLib();
 
     const promises = usersMock.map(async (user) => {
-      await mongoDB.create('user', user);
+      await mongoDB.create('users', user);
     });
 
     await Promise.all(promises);
-    debug(`${promises.length} movies have been created succesfully`);
+    debug(`${promises.length} users have been created succesfully`);
     return process.exit(0);
   } catch (error) {
     debug(error);
