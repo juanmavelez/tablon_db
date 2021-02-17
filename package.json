@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/juanmavelez/tablon_db#readme",
   "devDependencies": {
+    "chalk": "^3.0.0",
     "mocha": "^8.3.0",
     "nodemon": "^2.0.7",
     "nyc": "^15.1.0",
