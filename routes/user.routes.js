@@ -34,19 +34,6 @@ function userApi(app) {
     }
   });
 
-  router.post('/', validationHandler(createUserSchema), async function (req, res, next) {
-    const { body: user } = req;
-    try {
-      const createdUser = await userService.createUser({ user });
-      res.status(201).json({
-        data: createdUser,
-        message: 'user was created',
-      });
-    } catch (err) {
-      next(err);
-    }
-  });
-
   router.put('/:userId', validationHandler(updateUserSchema), async function (req, res, next) {
     try {
       const { body: user } = req;

@@ -2,13 +2,14 @@ const express = require('express');
 const CourseService = require('../services/course.service');
 const validationHandler = require('../utils/middleware/validationHandler');
 const { courseIdSchema, createCourseSchema, updateCourseSchema } = require('../utils/schemas/course.schema');
+const scopesValidationHandler = require('../utils/middleware/scopesValidationHandler');
 
 function courseApi(app) {
   const router = express.Router();
   app.use('/api/courses', router);
   courseService = new CourseService();
 
-  router.get('/', async function (req, res, next) {
+  router.get('/', scopesValidationHandler(['read:courses']), async function (req, res, next) {
     try {
       const { tags } = req.query;
       const courses = await courseService.getCourses({ tags });
@@ -21,34 +22,45 @@ function courseApi(app) {
     }
   });
 
-  router.get('/:courseId', validationHandler({ courseId: courseIdSchema }, 'params'), async function (req, res, next) {
-    try {
-      const { courseId } = req.params;
-      const course = await courseService.getCourse({ courseId });
-      res.status(200).json({
-        data: course,
-        message: 'course was listed',
-      });
-    } catch (err) {
-      next(err);
+  router.get(
+    '/:courseId',
+    scopesValidationHandler(['read:courses']),
+    validationHandler({ courseId: courseIdSchema }, 'params'),
+    async function (req, res, next) {
+      try {
+        const { courseId } = req.params;
+        const course = await courseService.getCourse({ courseId });
+        res.status(200).json({
+          data: course,
+          message: 'course was listed',
+        });
+      } catch (err) {
+        next(err);
+      }
     }
-  });
+  );
 
-  router.post('/', validationHandler(createCourseSchema), async function (req, res, next) {
-    try {
-      const { body: course } = req;
-      const createdCourse = await courseService.createCourse({ course });
-      res.status(201).json({
-        data: createdCourse,
-        message: 'course was created',
-      });
-    } catch (err) {
-      next(err);
+  router.post(
+    '/',
+    scopesValidationHandler(['create:courses']),
+    validationHandler(createCourseSchema),
+    async function (req, res, next) {
+      try {
+        const { body: course } = req;
+        const createdCourse = await courseService.createCourse({ course });
+        res.status(201).json({
+          data: createdCourse,
+          message: 'course was created',
+        });
+      } catch (err) {
+        next(err);
+      }
     }
-  });
+  );
 
   router.put(
     '/:courseId',
+    scopesValidationHandler(['update:courses']),
     validationHandler({ courseId: courseIdSchema }, 'params'),
     validationHandler(updateCourseSchema),
     async function (req, res, next) {
@@ -68,6 +80,7 @@ function courseApi(app) {
 
   router.delete(
     '/:courseId',
+    scopesValidationHandler(['delete:courses']),
     validationHandler({ courseId: courseIdSchema }, 'params'),
     async function (req, res, next) {
       try {
