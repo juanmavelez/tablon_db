@@ -6,6 +6,7 @@ const { config } = require('./config');
 const userApi = require('./routes/user.routes');
 const courseApi = require('./routes/course.routes');
 const userCoursesApi = require('./routes/userCourses.routes');
+const authApi = require('./routes/auth.routes');
 
 const { logErrors, errorHandler, wrapError } = require('../tablon_db/utils/middleware/errorHandler');
 const notFoundHandler = require('./utils/middleware/notFoundHandler');
@@ -18,6 +19,7 @@ app.use(express.json());
 userApi(app);
 courseApi(app);
 userCoursesApi(app);
+authApi(app);
 
 //catch 404
 app.use(notFoundHandler);

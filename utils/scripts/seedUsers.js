@@ -2,13 +2,27 @@
 const debug = require('debug')('app:scripts:users');
 const MongoLib = require('../../lib/mongo');
 const usersMock = require('../mocks/users.mock');
+const bcrypt = require('bcrypt');
 
-async function seedMovies() {
+async function createUser(mongoDB, user) {
+  const { name, email, password, isAdmin } = user;
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const userId = await mongoDB.create('users', {
+    name,
+    email,
+    password: hashedPassword,
+    isAdmin: Boolean(isAdmin),
+  });
+  return userId;
+}
+
+async function seedUsers() {
   try {
     const mongoDB = new MongoLib();
 
     const promises = usersMock.map(async (user) => {
-      await mongoDB.create('users', user);
+      const userId = await createUser(mongoDB, user);
+      debug('User created with an id:', userId);
     });
 
     await Promise.all(promises);
@@ -20,4 +34,4 @@ async function seedMovies() {
   }
 }
 
-seedMovies();
+seedUsers();
