@@ -37,11 +37,6 @@ const coursesMock = [
       },
     ],
     tags: [{ tags_id: 'K23x301441zO89hb25lv6Fl3' }, { tags_id: 'i31wp531G6HVR588WsdmJ4V7' }],
-    students: [
-      { user_id: '602e5803cc102147f6793486' },
-      { user_id: '602e5803cc102147f6793487' },
-      { user_id: '602e5803cc102147f6793488' },
-    ],
     description:
       'lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa',
   },
@@ -71,7 +66,6 @@ const coursesMock = [
       { tags_id: 'Nb54797956u54O1qH3epoUN7' },
       { tags_id: 'F711eo31gIQ6077M2634L4kp' },
     ],
-    students: [{ user_id: '602e5803cc102147f6793487' }],
     description: 'sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci',
   },
   {
@@ -102,7 +96,6 @@ const coursesMock = [
       { tags_id: '5jIRV5671qX1232u0Mc0U8WV' },
       { tags_id: '9c3818G0apy8qEnvn4781A7Y' },
     ],
-    students: [{ user_id: '602e5803cc102147f6793486' }, { user_id: '602e5803cc102147f6793485' }],
     description:
       'vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla',
   },
@@ -140,7 +133,7 @@ const coursesMock = [
       { tags_id: '5jNM95Xjkyw0776o3E878788' },
       { tags_id: 'Gt6r7C6i9mXjv1r5vgt65LSv' },
     ],
-    students: [{ user_id: '602e5803cc102147f6793487' }, { user_id: '602e5803cc102147f6793488' }],
+
     description: 'lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla',
   },
   {
@@ -183,7 +176,6 @@ const coursesMock = [
       { tags_id: '33314a48E82h0o90j0274762' },
       { tags_id: '9964Wu3h7QW9v139155lpkV0' },
     ],
-    students: [{ user_id: '602e5803cc102147f6793485' }],
     description: 'sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam',
   },
   {
@@ -220,7 +212,6 @@ const coursesMock = [
       },
     ],
     tags: [{ tags_id: '59v4vO66J40010TLd41yg7Dm' }, { tags_id: 'UUJ12942tzn952Mv6M5OPdOR' }],
-    students: [{ user_id: '602e5803cc102147f6793487' }, { user_id: '602e5803cc102147f6793486' }],
     description: 'elit proin risus praesent lectus vestibulum quam sapien varius ut blandit',
   },
   {
@@ -256,11 +247,6 @@ const coursesMock = [
       },
     ],
     tags: [{ tags_id: 'l01vnj7NW3m378W7856F90J2' }],
-    students: [
-      { user_id: 'sM2LO1xL6A8xmkrwgt991s0F' },
-      { user_id: '602e5803cc102147f6793486' },
-      { user_id: '602e5803cc102147f6793485' },
-    ],
     description: 'morbi porttitor lorem id ligula suspendisse ornare consequat lectus in',
   },
   {
@@ -309,7 +295,6 @@ const coursesMock = [
       },
     ],
     tags: [{ tags_id: 'C3f5RDuGEC4e6308mS1HnO5u' }],
-    students: [{ user_id: '602e5803cc102147f6793487' }, { user_id: '602e5803cc102147f6793488' }],
     description: 'dapibus nulla suscipit ligula in lacus curabitur at ipsum ac',
   },
   {
@@ -342,7 +327,6 @@ const coursesMock = [
       { tags_id: '0Q66z9773I8027o2q5B7D9SL' },
       { tags_id: 'x0o78wW5pY40lRDI9Wu022NP' },
     ],
-    students: [{ user_id: '602e5803cc102147f6793485' }],
     description: 'sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet',
   },
   {
@@ -361,7 +345,6 @@ const coursesMock = [
       },
     ],
     tags: [{ tags_id: '3z1rkAkA5134603Ei56P291i' }],
-    students: [{ user_id: '602e5803cc102147f6793486' }, { user_id: '602e5803cc102147f6793487' }],
     description: 'vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit',
   },
 ];

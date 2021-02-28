@@ -1,29 +1,39 @@
 const express = require('express');
+const passport = require('passport');
 const CourseService = require('../services/course.service');
-const validationHandler = require('../utils/middleware/validationHandler');
 const { courseIdSchema, createCourseSchema, updateCourseSchema } = require('../utils/schemas/course.schema');
+
 const scopesValidationHandler = require('../utils/middleware/scopesValidationHandler');
+const validationHandler = require('../utils/middleware/validationHandler');
+
+require('../utils/auth/strategies/jwt');
 
 function courseApi(app) {
   const router = express.Router();
   app.use('/api/courses', router);
   courseService = new CourseService();
 
-  router.get('/', scopesValidationHandler(['read:courses']), async function (req, res, next) {
-    try {
-      const { tags } = req.query;
-      const courses = await courseService.getCourses({ tags });
-      res.status(200).json({
-        data: courses,
-        message: 'courses were listed',
-      });
-    } catch (err) {
-      next(err);
+  router.get(
+    '/',
+    passport.authenticate('jwt', { session: false }),
+    scopesValidationHandler(['read:courses']),
+    async function (req, res, next) {
+      try {
+        const { tags } = req.query;
+        const courses = await courseService.getCourses({ tags });
+        res.status(200).json({
+          data: courses,
+          message: 'courses were listed',
+        });
+      } catch (err) {
+        next(err);
+      }
     }
-  });
+  );
 
   router.get(
     '/:courseId',
+    passport.authenticate('jwt', { session: false }),
     scopesValidationHandler(['read:courses']),
     validationHandler({ courseId: courseIdSchema }, 'params'),
     async function (req, res, next) {
@@ -42,6 +52,7 @@ function courseApi(app) {
 
   router.post(
     '/',
+    passport.authenticate('jwt', { session: false }),
     scopesValidationHandler(['create:courses']),
     validationHandler(createCourseSchema),
     async function (req, res, next) {
@@ -60,6 +71,7 @@ function courseApi(app) {
 
   router.put(
     '/:courseId',
+    passport.authenticate('jwt', { session: false }),
     scopesValidationHandler(['update:courses']),
     validationHandler({ courseId: courseIdSchema }, 'params'),
     validationHandler(updateCourseSchema),
@@ -80,6 +92,7 @@ function courseApi(app) {
 
   router.delete(
     '/:courseId',
+    passport.authenticate('jwt', { session: false }),
     scopesValidationHandler(['delete:courses']),
     validationHandler({ courseId: courseIdSchema }, 'params'),
     async function (req, res, next) {

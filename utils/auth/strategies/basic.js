@@ -14,8 +14,7 @@ passport.use(
       if (!user) {
         return callback(boom.unauthorized(), false);
       }
-      console.log(password);
-      console.log(user.password);
+
       if (!(await bcrypt.compare(password, user.password))) {
         return callback(boom.unauthorized(), false);
       }

@@ -27,7 +27,7 @@ function authApi(app) {
     passport.authenticate('basic', function (error, user) {
       try {
         if (error || !user) {
-          next(boom.unauthorized());
+          next(boom.unauthorized('invalid user or password'));
         }
 
         req.login(user, { session: false }, async function (error) {
@@ -38,7 +38,7 @@ function authApi(app) {
           const apiKey = await apiKeyService.getApiKey({ token: apiKeyToken });
 
           if (!apiKey) {
-            next(boom.unauthorized());
+            next(boom.unauthorized('invalid user or password'));
           }
 
           const { _id: id, name, email } = user;
@@ -51,7 +51,7 @@ function authApi(app) {
           };
 
           const token = jwt.sign(payload, config.authJwtSecret, {
-            expiresIn: '15m',
+            expiresIn: '120m',
           });
 
           return res.status(200).json({ token, user: { id, name, email } });

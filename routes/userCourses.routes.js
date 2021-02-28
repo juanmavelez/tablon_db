@@ -11,10 +11,10 @@ function userCoursesApi(app) {
   app.use('/api/user-courses', router);
   userCoursesService = new UserCoursesService();
 
-  router.get('/', validationHandler({ userId: userIdSchema }, 'query'), async function (req, res, next) {
-    const { userId } = req.query;
+  router.get('/', validationHandler({ user_id: userIdSchema }, 'query'), async function (req, res, next) {
+    const { user_id } = req.query;
     try {
-      const userCourses = await userCoursesService.getUserCourses({ userId });
+      const userCourses = await userCoursesService.getUserCourses({ user_id });
       res.status(200).json({
         data: userCourses,
         message: 'user courses listed',

@@ -1,10 +1,10 @@
 // DEBUG=app:* node utils/scripts/seedCourses.js
 
-const debug = require('debug')('app:scripts:users');
+const debug = require('debug')('app:scripts:courses');
 const MongoLib = require('../../lib/mongo');
 const usersMock = require('../mocks/courses.mock');
 
-async function seedMovies() {
+async function seedCourses() {
   try {
     const mongoDB = new MongoLib();
 
@@ -21,4 +21,4 @@ async function seedMovies() {
   }
 }
 
-seedMovies();
+seedCourses();

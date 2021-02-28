@@ -21,7 +21,6 @@ const createCourseSchema = Joi.object({
   teacher: userIdSchema.required(),
   lessons: courseLessonsSchema.required(),
   tags: courseTagSchema.required(),
-  students: courseStudentsSchema.required(),
   description: courseDescriptionSchema.required(),
 });
 
@@ -30,7 +29,6 @@ const updateCourseSchema = Joi.object({
   teacher: userIdSchema,
   lessons: courseLessonsSchema,
   tags: courseTagSchema,
-  students: courseStudentsSchema,
   description: courseDescriptionSchema,
 });
 
