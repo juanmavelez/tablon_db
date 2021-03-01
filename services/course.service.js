@@ -1,4 +1,5 @@
 const { query } = require('express');
+const { ObjectId } = require('mongodb');
 const MongoLib = require('../lib/mongo');
 
 class CourseService {
@@ -7,10 +8,10 @@ class CourseService {
     this.mongoDB = new MongoLib();
   }
 
-  async getCourses({ tags }) {
-    const query = tags && { tags: { $in: tags } };
-    const users = await this.mongoDB.getAll(this.collection, query);
-    return users || [];
+  async getCourses(tags) {
+    const query = tags && { _id: { $in: tags } };
+    const courses = await this.mongoDB.getAll(this.collection, query);
+    return courses || [];
   }
 
   async getCourse({ courseId }) {
