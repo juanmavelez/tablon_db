@@ -8,8 +8,8 @@ class CourseService {
     this.mongoDB = new MongoLib();
   }
 
-  async getCourses(tags) {
-    const query = tags && { _id: { $in: tags } };
+  async getCourses({ _id }) {
+    const query = _id && { _id: { $in: _id } };
     const courses = await this.mongoDB.getAll(this.collection, query);
     return courses || [];
   }

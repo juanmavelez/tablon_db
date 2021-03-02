@@ -13,6 +13,7 @@ function userCoursesApi(app) {
 
   router.get('/', validationHandler({ user_id: userIdSchema }, 'query'), async function (req, res, next) {
     const { user_id } = req.query;
+    console.log(req.query);
     try {
       const userCourses = await userCoursesService.getUserCourses({ user_id });
       res.status(200).json({

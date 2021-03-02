@@ -19,8 +19,11 @@ function courseApi(app) {
     scopesValidationHandler(['read:courses']),
     async function (req, res, next) {
       try {
-        const { tags } = req.query;
-        const courses = await courseService.getCourses({ tags });
+        const { _id } = req.query;
+        console.log('req param is ', req.params);
+        console.log('query es ', req.query);
+        console.log('tags are', { _id });
+        const courses = await courseService.getCourses({ _id });
         res.status(200).json({
           data: courses,
           message: 'courses were listed',

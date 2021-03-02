@@ -42,15 +42,14 @@ class UserCoursesServices {
  * @param item: param from the elements of the array. normal values: user_id || courses_id
  * @response ['id1','id2','id3'] || []
  */
-
 const queryCreator = (itemsList, item) => {
-  let query = [];
+  let _ids = [];
   if (itemsList[0][item]) {
     for (let i = 0; i < itemsList.length; i++) {
-      query[i] = ObjectId(itemsList[i][item]);
+      _ids[i] = ObjectId(itemsList[i][item]);
     }
   }
-  return query;
+  return { _id: _ids };
 };
 
 module.exports = UserCoursesServices;
