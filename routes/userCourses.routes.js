@@ -8,12 +8,12 @@ const { courseIdSchema } = require('../utils/schemas/course.schema');
 
 function userCoursesApi(app) {
   const router = express.Router();
+
   app.use('/api/user-courses', router);
   userCoursesService = new UserCoursesService();
 
   router.get('/', validationHandler({ user_id: userIdSchema }, 'query'), async function (req, res, next) {
     const { user_id } = req.query;
-    console.log(req.query);
     try {
       const userCourses = await userCoursesService.getUserCourses({ user_id });
       res.status(200).json({

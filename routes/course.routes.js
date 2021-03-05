@@ -20,9 +20,6 @@ function courseApi(app) {
     async function (req, res, next) {
       try {
         const { _id } = req.query;
-        console.log('req param is ', req.params);
-        console.log('query es ', req.query);
-        console.log('tags are', { _id });
         const courses = await courseService.getCourses({ _id });
         res.status(200).json({
           data: courses,

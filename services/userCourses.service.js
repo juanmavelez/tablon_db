@@ -12,17 +12,21 @@ class UserCoursesServices {
   async getUserCourses({ user_id }) {
     const query = user_id && { user_id };
     const userCourses = await this.mongoDB.getAll(this.collection, query);
-    const queryCourses = queryCreator(userCourses, 'courses_id');
-
-    const courses = new CourseService();
-    const coursesResponse = await courses.getCourses(queryCourses);
-    return coursesResponse;
+    //If the user has no courses, it will return and empty object
+    if (Object.entries(userCourses).length === 0) {
+      return userCourses;
+    } else {
+      const queryCourses = queryCreator(userCourses, 'courses_id');
+      const courses = new CourseService();
+      return await courses.getCourses(queryCourses);
+    }
   }
 
   async createUserCourses({ userCourses }) {
     const createdUserCourses = await this.mongoDB.create(this.collection, userCourses);
     return createdUserCourses;
   }
+
   async deleteUserCourses({ userCoursesId }) {
     const deletedUserCourses = await this.mongoDB.delete(this.collection, userCoursesId);
     return deletedUserCourses;
