@@ -12,7 +12,20 @@ function userCoursesApi(app) {
   app.use('/api/user-courses', router);
   userCoursesService = new UserCoursesService();
 
-  router.get('/', validationHandler({ user_id: userIdSchema }, 'query'), async function (req, res, next) {
+  router.get('/', validationHandler({ user_id: userIdSchema }, 'params'), async function (req, res, next) {
+    const user_id = req.query;
+    try {
+      const userCourses = await userCoursesService.getUserCoursesId(user_id);
+      res.status(200).json({
+        data: userCourses,
+        message: 'user courses id listed',
+      });
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  router.get('/:userId', validationHandler({ user_id: userIdSchema }, 'query'), async function (req, res, next) {
     const { user_id } = req.query;
     try {
       const userCourses = await userCoursesService.getUserCourses({ user_id });
@@ -28,7 +41,7 @@ function userCoursesApi(app) {
   router.post('/', validationHandler(createUserCourseSchema), async function (req, res, next) {
     try {
       const { body: userCourse } = req;
-      const createdUserCourses = await userCoursesService.createUserCourses({ userCourse });
+      const createdUserCourses = await userCoursesService.createUserCourses(userCourse);
       res.status(201).json({
         data: createdUserCourses,
         message: 'user course created',

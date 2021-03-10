@@ -6,12 +6,12 @@ const userCourseIdSchema = Joi.string().regex(/^[0-9a-f-A-F]{24}/);
 
 const createUserCourseSchema = Joi.object({
   user_id: userIdSchema.required(),
-  courses: Joi.array().items(courseIdSchema),
+  course_id: courseIdSchema.required,
 });
 
-const updateUserCourseSchema = Joi.object({
+const delteUserCourseSchema = Joi.object({
   user_id: userIdSchema.required(),
-  courses: Joi.array().items(courseIdSchema),
+  course_id: courseIdSchema.required(),
 });
 
-module.exports = { userCourseIdSchema, createUserCourseSchema };
+module.exports = { userCourseIdSchema, delteUserCourseSchema };
