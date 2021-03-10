@@ -9,9 +9,6 @@ const createUserCourseSchema = Joi.object({
   course_id: courseIdSchema.required,
 });
 
-const delteUserCourseSchema = Joi.object({
-  user_id: userIdSchema.required(),
-  course_id: courseIdSchema.required(),
-});
-
-module.exports = { userCourseIdSchema, delteUserCourseSchema };
+module.exports = {
+  userCourseIdSchema,
+};

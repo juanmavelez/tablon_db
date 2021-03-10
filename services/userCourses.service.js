@@ -33,7 +33,7 @@ class UserCoursesServices {
     return createdUserCourses;
   }
 
-  async deleteUserCourses({ userCoursesId }) {
+  async deleteUserCourses(userCoursesId) {
     const deletedUserCourses = await this.mongoDB.delete(this.collection, userCoursesId);
     return deletedUserCourses;
   }

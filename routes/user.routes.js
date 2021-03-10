@@ -1,6 +1,8 @@
 const express = require('express');
+
 const UserService = require('../services/user.service');
 const validationHandler = require('../utils/middleware/validationHandler');
+
 const { userIdSchema, createUserSchema, updateUserSchema } = require('../utils/schemas/user.schema');
 
 function userApi(app) {
