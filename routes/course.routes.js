@@ -79,6 +79,7 @@ function courseApi(app) {
       try {
         const { body: course } = req;
         const { courseId } = req.params;
+        console.log('Iam here');
         const updatedCourseId = await courseService.updateCourse({ courseId, course });
         res.status(200).json({
           data: updatedCourseId,

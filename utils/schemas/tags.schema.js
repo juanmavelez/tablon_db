@@ -1,5 +1,5 @@
 const Joi = require('Joi');
-const tagsIdSchema = Joi.string().regex(/^[0-9a-f-A-F]{24}/);
+const tagsIdSchema = Joi.string().regex(new RegExp('[0-9a-fA-F]{24}$'));
 const tagsNameSchema = Joi.string().max(80);
 
 const createtagsSchema = Joi.object({
