@@ -57,7 +57,7 @@ function userCoursesApi(app) {
   router.post(
     '/',
     passport.authenticate('jwt', { session: false }),
-    scopesValidationHandler(['create:usercourses']),
+    scopesValidationHandler(['create:user-courses']),
     validationHandler(createUserCourseSchema),
     async function (req, res, next) {
       try {
