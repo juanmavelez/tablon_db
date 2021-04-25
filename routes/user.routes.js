@@ -1,4 +1,5 @@
 const express = require('express');
+const { ObjectId } = require('mongodb');
 
 const UserService = require('../services/user.service');
 const validationHandler = require('../utils/middleware/validationHandler');
@@ -26,7 +27,9 @@ function userApi(app) {
   router.get('/:userId', validationHandler({ userId: userIdSchema }, 'params'), async function (req, res, next) {
     try {
       const { userId } = req.params;
-      const user = await userService.getUser({ userId });
+      const query = { _id: ObjectId(userId) };
+      const user = await userService.getUser(query);
+      console.log(user);
       res.status(200).json({
         data: user,
         message: 'user was listed',

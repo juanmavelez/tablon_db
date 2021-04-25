@@ -61,6 +61,7 @@ function userCoursesApi(app) {
     validationHandler(createUserCourseSchema),
     async function (req, res, next) {
       try {
+        console.log('creating new usercourse');
         const { body: userCourse } = req;
         const createdUserCourses = await userCoursesService.createUserCourses(userCourse);
         res.status(201).json({
@@ -80,6 +81,7 @@ function userCoursesApi(app) {
     validationHandler({ userCourseId: courseIdSchema }, 'params'),
     async function (req, res, next) {
       try {
+        console.log('deleting userCourse');
         const { userCourseId } = req.params;
         const deledUserCourses = await userCoursesService.deleteUserCourses(userCourseId);
         res.status(200).json({

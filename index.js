@@ -8,7 +8,7 @@ const courseApi = require('./routes/course.routes');
 const userCoursesApi = require('./routes/userCourses.routes');
 const authApi = require('./routes/auth.routes');
 
-const { logErrors, errorHandler, wrapError } = require('../tablon_db/utils/middleware/errorHandler');
+const { logErrors, errorHandler, wrapError } = require('./utils/middleware/errorHandler');
 const notFoundHandler = require('./utils/middleware/notFoundHandler');
 
 //body parser
