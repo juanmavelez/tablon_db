@@ -7,6 +7,7 @@ const userApi = require('./routes/user.routes');
 const courseApi = require('./routes/course.routes');
 const userCoursesApi = require('./routes/userCourses.routes');
 const authApi = require('./routes/auth.routes');
+const tags = require('./routes/tags.routes');
 
 const { logErrors, errorHandler, wrapError } = require('./utils/middleware/errorHandler');
 const notFoundHandler = require('./utils/middleware/notFoundHandler');
@@ -20,6 +21,7 @@ userApi(app);
 courseApi(app);
 userCoursesApi(app);
 authApi(app);
+tags(app);
 
 //catch 404
 app.use(notFoundHandler);

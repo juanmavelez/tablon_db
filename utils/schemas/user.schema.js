@@ -1,11 +1,11 @@
 const Joi = require('Joi');
-const { tagsIdSchema } = require('./tags.schema');
+const { tagNameSchema } = require('./tag.schema');
 
 const userIdSchema = Joi.string().regex(/^[0-9a-f-A-F]{24}/);
 const userNameSchema = Joi.string().max(80);
 const userEmailSchema = Joi.string().email();
 const userPassword = Joi.string();
-const userTags = Joi.array().items(tagsIdSchema);
+const userTags = Joi.array().items(tagNameSchema);
 const isAdim = Joi.boolean();
 
 const userInterestSchema = Joi.array().items(Joi.string());
