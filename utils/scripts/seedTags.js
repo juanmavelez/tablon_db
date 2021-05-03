@@ -13,12 +13,16 @@ const tags = [
   },
   {
     type: 'backend',
-    languages: ['NodeJS', 'Python', 'Golang', 'Ruby', 'Java', 'C++'],
+    lenguages: ['NodeJS', 'Python', 'Golang', 'Ruby', 'Java', 'C++'],
     frameworks: ['Django', 'Laravel', 'Rails', 'Express', 'Spring'],
   },
   {
     type: 'infraestructure',
     names: ['Google Clound', 'Digital Ocean', 'Amazon Web Services', 'Heroku', 'Azure'],
+  },
+  {
+    type: 'database',
+    names: ['MySQL', 'SQL', 'MongoDB', 'GraphQL', 'MariaDB'],
   },
 ];
 

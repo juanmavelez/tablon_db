@@ -9,7 +9,6 @@ class TagService {
   async getTags({ tags }) {
     const query = tags && { tags: { $in: tags } };
     const tagsResponse = await this.mongoDB.getAll(this.collection, query);
-    console.log(tagsResponse);
     return tagsResponse || [];
   }
   async updateTag({ tagId, tag }) {

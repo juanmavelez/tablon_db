@@ -9,7 +9,6 @@ passport.use(
     const userService = new UserService();
 
     try {
-      console.log({ email });
       const user = await userService.getUser({ email });
       if (!user) {
         return callback(boom.unauthorized(), false);
