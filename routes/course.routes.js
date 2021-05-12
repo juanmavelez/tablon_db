@@ -54,7 +54,6 @@ function courseApi(app) {
     '/',
     passport.authenticate('jwt', { session: false }),
     scopesValidationHandler(['create:courses']),
-    validationHandler(createCourseSchema),
     async function (req, res, next) {
       try {
         const { body: course } = req;

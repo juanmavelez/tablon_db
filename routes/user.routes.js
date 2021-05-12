@@ -29,7 +29,6 @@ function userApi(app) {
       const { userId } = req.params;
       const query = { _id: ObjectId(userId) };
       const user = await userService.getUser(query);
-      console.log(user);
       res.status(200).json({
         data: user,
         message: 'user was listed',

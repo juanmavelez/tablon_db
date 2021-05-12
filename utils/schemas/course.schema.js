@@ -14,7 +14,7 @@ const courseIdSchema = Joi.string().regex(new RegExp('[0-9a-fA-F]{24}$'));
 const courseNameSchema = Joi.string().max(80);
 const courseLessonsSchema = Joi.array().items(createLessonSchema);
 const courseStudentsSchema = Joi.array().items(userIdSchema);
-const courseTagSchema = Joi.array().items(tagNameSchema);
+const courseTagSchema = Joi.array().items();
 const courseDescriptionSchema = Joi.string();
 
 const createCourseSchema = Joi.object({

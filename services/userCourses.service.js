@@ -3,7 +3,7 @@ const MongoLib = require('../lib/mongo');
 const CourseService = require('./course.service');
 const { ObjectId } = require('mongodb');
 
-class UserCoursesServices {
+class UserCoursesService {
   constructor() {
     this.collection = 'user-courses';
     this.mongoDB = new MongoLib();
@@ -62,4 +62,4 @@ const queryCreator = (itemsList, item) => {
   return { _id: _ids };
 };
 
-module.exports = UserCoursesServices;
+module.exports = UserCoursesService;

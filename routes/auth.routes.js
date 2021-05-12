@@ -35,6 +35,7 @@ function authApi(app) {
             if (!apiKey) {
               next(boom.unauthorized('invalid user or password, try again'));
             }
+
             const { _id: id, name, email } = user;
             const payload = {
               sub: id,
