@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const CourseService = require('../services/course.service');
+const UserCoursesService = require('../services/userCourses.service');
 const { courseIdSchema, createCourseSchema, updateCourseSchema } = require('../utils/schemas/course.schema');
 
 const scopesValidationHandler = require('../utils/middleware/scopesValidationHandler');
@@ -12,6 +13,7 @@ function courseApi(app) {
   const router = express.Router();
   app.use('/api/courses', router);
   courseService = new CourseService();
+  userCoursesService = new UserCoursesService();
 
   router.get(
     '/',
@@ -58,8 +60,12 @@ function courseApi(app) {
       try {
         const { body: course } = req;
         const createdCourse = await courseService.createCourse({ course });
+        const createdUserCourse = await userCoursesService.createUserCourses({
+          user_id: course.teacher,
+          course_id: JSON.stringify(createdCourse)._id,
+        });
         res.status(201).json({
-          data: createdCourse,
+          data: createdUserCourse,
           message: 'course was created',
         });
       } catch (err) {
@@ -78,7 +84,6 @@ function courseApi(app) {
       try {
         const { body: course } = req;
         const { courseId } = req.params;
-        console.log('Iam here');
         const updatedCourseId = await courseService.updateCourse({ courseId, course });
         res.status(200).json({
           data: updatedCourseId,

@@ -2,6 +2,8 @@ const express = require('express');
 const passport = require('passport');
 
 const UserCoursesService = require('../services/userCourses.service');
+const CourseService = require('../services/course.service');
+const queryCreator = require('../utils/queryCreator');
 
 const validationHandler = require('../utils/middleware/validationHandler');
 const scopesValidationHandler = require('../utils/middleware/scopesValidationHandler');
@@ -15,6 +17,7 @@ function userCoursesApi(app) {
 
   app.use('/api/user-courses', router);
   userCoursesService = new UserCoursesService();
+  courseService = new CourseService();
 
   router.get(
     '/',
@@ -23,6 +26,7 @@ function userCoursesApi(app) {
     validationHandler({ user_id: userIdSchema }, 'params'),
     async function (req, res, next) {
       const user_id = req.query;
+      console.log('here i am ');
       try {
         const userCourses = await userCoursesService.getUserCoursesId(user_id);
         res.status(200).json({
@@ -44,10 +48,19 @@ function userCoursesApi(app) {
       const { user_id } = req.query;
       try {
         const userCourses = await userCoursesService.getUserCourses({ user_id });
-        res.status(200).json({
-          data: userCourses,
-          message: 'user courses listed',
-        });
+        if (Object.entries(userCourses).length === 0) {
+          res.status(200).json({
+            data: userCourses,
+            message: 'user courses listed',
+          });
+        } else {
+          const queryCourses = queryCreator(userCourses, 'courses_id');
+          const response = await courseService.getCourses(queryCourses);
+          res.status(200).json({
+            data: response,
+            message: 'user courses listed',
+          });
+        }
       } catch (err) {
         next(err);
       }

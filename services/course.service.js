@@ -1,7 +1,6 @@
 const { query } = require('express');
 const { ObjectId } = require('mongodb');
 const MongoLib = require('../lib/mongo');
-const UserCoursesService = require('./userCourses.service');
 
 class CourseService {
   constructor() {
@@ -22,11 +21,7 @@ class CourseService {
 
   async createCourse({ course }) {
     const createdCourseId = await this.mongoDB.create(this.collection, course);
-    const userCoursesService = new UserCoursesService();
-    return await userCoursesService.createUserCourses({
-      user_id: course.teacher,
-      course_id: JSON.stringify(createdCourseId),
-    });
+    return createdCourseId;
   }
 
   async updateCourse({ courseId, course }) {
