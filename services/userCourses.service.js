@@ -8,10 +8,16 @@ class UserCoursesService {
     this.mongoDB = new MongoLib();
   }
 
-  async getUserCoursesId({ user_id }) {
-    const query = user_id && { user_id };
+  async getUserCoursesId({ _id }) {
+    const query = _id && { _id };
     const userCourses = await this.mongoDB.getAll(this.collection, query);
-    return userCourses;
+    return userCourses || [];
+  }
+
+  async getCourseUsers({ courses_id }) {
+    const query = courses_id && { courses_id };
+    const courseUsers = await this.mongoDB.getAll(this.collection, query);
+    return courseUsers || [];
   }
 
   async getUserCourses({ user_id }) {
