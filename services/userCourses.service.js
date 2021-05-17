@@ -8,8 +8,7 @@ class UserCoursesService {
     this.mongoDB = new MongoLib();
   }
 
-  async getUserCoursesId({ _id }) {
-    const query = _id && { _id };
+  async getUserCoursesId(query) {
     const userCourses = await this.mongoDB.getAll(this.collection, query);
     return userCourses || [];
   }
@@ -20,8 +19,7 @@ class UserCoursesService {
     return courseUsers || [];
   }
 
-  async getUserCourses({ user_id }) {
-    const query = user_id && { user_id };
+  async getUserCourses(query) {
     const userCourses = await this.mongoDB.getAll(this.collection, query);
     return userCourses;
   }

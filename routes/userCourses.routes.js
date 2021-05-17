@@ -23,16 +23,18 @@ function userCoursesApi(app) {
 
   router.get(
     '/:id',
-    /*     passport.authenticate('jwt', { session: false }),
+    passport.authenticate('jwt', { session: false }),
     scopesValidationHandler(['read:user-courses']),
-    validationHandler({ user_id: userIdSchema } || { course_id: userIdSchema }, 'query'), */
+    validationHandler({ user_id: userIdSchema } || { course_id: userIdSchema }, 'query'),
 
     async function (req, res, next) {
       try {
         if (Object.keys(req.body)[0] === 'user_id') {
-          //if body === user_id
+          // if body === user_id
           key = 'courses_id';
+          console.log('body is', req.body);
           const userCourses = await userCoursesService.getUserCourses(req.body);
+          console.log(userCourses);
           if (Object.entries(userCourses).length === 0) {
             //if user had no courses
             res.status(200).json({
@@ -48,6 +50,7 @@ function userCoursesApi(app) {
             });
           }
         } else {
+          // if body ===course_id
           key = 'user_id';
           const courseUsers = await userCoursesService.getCourseUsers(req.body);
           if (Object.entries(courseUsers).length === 0) {
@@ -78,7 +81,7 @@ function userCoursesApi(app) {
     async function (req, res, next) {
       const user_id = req.query;
       try {
-        const userCourses = await userCoursesService.getUserCoursesId(user_id);
+        const userCourses = await userCoursesService.getUserCoursesId(req.query);
         res.status(200).json({
           data: userCourses,
           message: 'user courses id listed',
