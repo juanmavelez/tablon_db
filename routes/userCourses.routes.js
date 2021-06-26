@@ -12,6 +12,7 @@ const scopesValidationHandler = require('../utils/middleware/scopesValidationHan
 const { userCourseIdSchema, createUserCourseSchema } = require('../utils/schemas/userCourses.schema');
 const { userIdSchema } = require('../utils/schemas/user.schema');
 const { courseIdSchema } = require('../utils/schemas/course.schema');
+const { query } = require('express');
 
 function userCoursesApi(app) {
   const router = express.Router();
@@ -29,12 +30,10 @@ function userCoursesApi(app) {
 
     async function (req, res, next) {
       try {
+        const userCourses = await userCoursesService.getUserCourses(req.body);
         if (Object.keys(req.body)[0] === 'user_id') {
           // if body === user_id
           key = 'courses_id';
-          console.log('body is', req.body);
-          const userCourses = await userCoursesService.getUserCourses(req.body);
-          console.log(userCourses);
           if (Object.entries(userCourses).length === 0) {
             //if user had no courses
             res.status(200).json({

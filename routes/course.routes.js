@@ -59,10 +59,11 @@ function courseApi(app) {
     async function (req, res, next) {
       try {
         const { body: course } = req;
+        console.log('course', course);
         const createdCourse = await courseService.createCourse({ course });
         const createdUserCourse = await userCoursesService.createUserCourses({
           user_id: course.teacher,
-          course_id: JSON.stringify(createdCourse)._id,
+          courses_id: createdCourse.toString(),
         });
         res.status(201).json({
           data: createdUserCourse,

@@ -25,7 +25,9 @@ class UserCoursesService {
   }
 
   async createUserCourses(userCourses) {
+    console.log('userCourse is', userCourses);
     const createdUserCourses = await this.mongoDB.create(this.collection, userCourses);
+    console.log(this.createdUserCourses);
     return createdUserCourses;
   }
 
